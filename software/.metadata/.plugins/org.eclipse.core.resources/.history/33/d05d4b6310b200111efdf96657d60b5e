@@ -1,0 +1,28 @@
+
+#include  <altera_avalon_sgdma.h>
+#include  <altera_avalon_sgdma_descriptor.h> 
+#include <altera_avalon_sgdma_regs.h>
+
+#include "adc.h"
+
+alt_sgdma_dev * PDmaDev;
+
+void InitADC(){
+  PDmaDev=alt_avalon_sgdma_open(SGDMA_F_NAME);  // имя из bsp
+}
+
+void ADCToMem( alt_u32 * Buf,  unsigned int Len){
+  // управление модулем АЦП, запуск ПДП , получение выборки
+
+  alt_sgdma_descriptor Desc,NextDesc;
+    
+  alt_avalon_sgdma_construct_stream_to_mem_desc(&Desc,  // descriptor
+                                                  &NextDesc, // next descriptor
+                                                  (alt_u32*) Buf,  // write buffer location
+                                                  (alt_u16)  Len,  // length of the buffer
+                                                  0); // writes are not to a fixed location 
+
+  alt_avalon_sgdma_do_sync_transfer(PDmaDev,&Desc);
+  
+  
+}

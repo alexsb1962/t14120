@@ -1,0 +1,122 @@
+/* hack_tcp.c  Created on: 18.05.2012    Author: Alex  */
+//
+
+#include <hack_tcp.h>
+
+
+
+  typedef struct TMacRaw{
+	     short st;
+	     char dest_mac0;
+	     char dest_mac1;
+	     char dest_mac2;
+	     char dest_mac3;
+	     char dest_mac4;
+	     char dest_mac5;
+	     char source_mac0;
+	     char source_mac1;
+	     char source_mac2;
+	     char source_mac3;
+	     char source_mac4;
+	     char source_mac5;
+         ushort type_len;
+  } ;
+
+  typedef struct TUdpRaw  {
+     unshort  ud_srcp;    /* source port */
+     unshort  ud_dstp;    /* dest port */
+     unshort  ud_len;     /* length of UDP packet  вместе с заголовком*/
+     unshort  ud_cksum;   /* UDP checksum */
+  } ;
+
+  typedef struct TIpRaw   {
+     u_char   ip_ver_ihl;    /* 4 bit version, 4 bit hdr len in 32bit words   0x54 - версия ip4 длина заголовка 5 32 разрядных */
+     u_char   ip_tos;        /* Type of Service  как правило 0 */
+     unshort  ip_len;        /* Total packet length including header */
+     unshort  ip_id;         /* ID for fragmentation */
+     unshort  ip_flgs_foff;  /* mask in flags as needed */
+     u_char   ip_time;       /* Time to live (secs)  время жизни  сек*/
+     u_char   ip_prot;       /* protocol   udp=0x11 */
+     unshort  ip_chksum;     /* Header checksum */
+     ip_addr  ip_src;        /* Source name  адрес источника */
+     ip_addr  ip_dest;       /* Destination name  адрес получателя */
+  } *ip_header;
+
+  typedef struct THeader{
+	  TMacRaw MacRaw;
+	  TIpRaw  IpRaw;
+	  TUdpRaw UdpRaw;
+  };
+
+#define UDPHeaderSize sizeof(THeader);
+
+  THeader Header;   // собственно заготовка заголовка
+
+   THeader*   SetHeader( MacSrc, MacDest,   ){
+	   THeader * PHeader;
+	   // память под заголовок
+
+
+   }
+
+  /*
+     int k,i,res;
+     unsigned int timeStart,timeStop;
+     // char buffer[1066];
+     #define data_len 1024
+     char *bf,*bf1,*buffer;
+     unsigned char *DataBuffer;
+
+     bf=(char *)npalloc(2000);
+     bf1=(char *)npalloc(2000);
+     buffer=bf;
+     for(k=0;k<1500;k++)buffer[k]=k;
+
+  udp_header=(struct udp_raw * )(buffer+sizeof(struct ip_raw) + sizeof(struct mac_raw) );
+  udp_header->ud_cksum=0;  // типа не используем
+  udp_header->ud_srcp=htons(54035);
+  udp_header->ud_dstp=htons(54035);
+  udp_header->ud_len=swap2(data_len+sizeof(struct udp_raw) );
+
+  ip_header= (struct ip_raw * )(buffer+sizeof(struct mac_raw) );
+  ip_header->ip_ver_ihl=0x45;  // длина заголовка и версия
+  ip_header->ip_tos=0;
+  ip_header->ip_len=swap2(data_len+sizeof(struct udp_raw)+sizeof(struct ip_raw) );
+  ip_header->ip_id=0;   // это для
+  ip_header->ip_flgs_foff=0; // сборки пакетов
+  ip_header->ip_time=2;
+  ip_header->ip_prot=0x11; //udp
+  ip_header->ip_chksum= 0;
+  ip_header->ip_src=192L + (168L<<8) + (0L<<16) + (55L<<24);
+  ip_header->ip_dest=192L + (168L<<8) + (0L<<16) + (3L<<24);
+  ip_header->ip_chksum= checksum((ushort *)ip_header, 20);
+
+		  //IP4_ADDR( &i,  192, 168, 0, 55);
+		  //IP4_ADDR( &((*ip_header).ip_dest), 192, 168, 0, 3);
+
+  mac_header= buffer;
+  mac_header->st=0x0000;
+  mac_header->dest_mac0=0x00;
+  mac_header->dest_mac1=0x24;
+  mac_header->dest_mac2=0x81;
+  mac_header->dest_mac3=0xb1;
+  mac_header->dest_mac4=0xa8;
+  mac_header->dest_mac5=0xee;
+  mac_header->source_mac0=0x00;
+  mac_header->source_mac1=0x25;
+  mac_header->source_mac2=0x02;
+  mac_header->source_mac3=0x03;
+  mac_header->source_mac4=0x04;
+  mac_header->source_mac5=0x05;
+  mac_header->type_len=0x0008;
+
+  HeaderLen=sizeof(struct udp_raw)+sizeof(struct ip_raw) + sizeof(struct mac_raw);
+  DataBuffer= buffer +  HeaderLen;
+
+
+
+
+
+*/
+
+

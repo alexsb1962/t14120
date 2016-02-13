@@ -1,0 +1,11 @@
+module get_data(
+      input adc_clk,
+      input fft_clk,
+      input nios_clk,
+		
+)
+
+
+
+
+endmodule

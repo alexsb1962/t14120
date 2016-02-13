@@ -1,0 +1,22 @@
+D:/test/asvm/sqrlog.v {1 {vlog -work work -vopt -nocovercells D:/test/asvm/sqrlog.v
+Model Technology ModelSim SE vlog 6.5 Compiler 2009.01 Jan 22 2009
+-- Compiling module sqrlog
+
+Top level modules:
+	sqrlog
+
+} {} {}} D:/test/asvm/fifo_res.v {1 {vlog -work work -vopt -nocovercells D:/test/asvm/fifo_res.v
+Model Technology ModelSim SE vlog 6.5 Compiler 2009.01 Jan 22 2009
+-- Compiling module fifo_res
+
+Top level modules:
+	fifo_res
+
+} {} {}} D:/test/asvm/sqrlog_tb.v {1 {vlog -work work -vopt -nocovercells D:/test/asvm/sqrlog_tb.v
+Model Technology ModelSim SE vlog 6.5 Compiler 2009.01 Jan 22 2009
+-- Compiling module sqrlog_tb
+
+Top level modules:
+	sqrlog_tb
+
+} {} {}}

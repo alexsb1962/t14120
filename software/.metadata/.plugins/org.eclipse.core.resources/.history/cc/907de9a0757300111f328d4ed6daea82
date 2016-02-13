@@ -1,0 +1,287 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h> 
+
+/* MicroC/OS-II definitions */
+#include "includes.h"
+
+/* Simple Socket Server definitions */
+#include "simple_socket_server.h"                                                                    
+#include "alt_error_handler.h"
+
+#include "ipport.h"
+#include "tcpport.h"
+#include "network_utilities.h"
+#include "osport.h"
+#include "ip.h"
+ 
+/*
+ * This SSSLEDCommandQ MicroC/OS-II message queue will be used to communicate 
+ * between the simple socket server task and Nios Development Board LED control 
+ * tasks.
+ *
+ * Handle to our MicroC/OS-II Command Queue and variable definitions related to 
+ * the Q for sending commands received on the TCP-IP socket from the 
+ * SSSSimpleSocketServerTask to the LEDManagementTask.
+ */
+OS_EVENT  *SSSLEDCommandQ;
+#define SSS_LED_COMMAND_Q_SIZE  30  /* Message capacity of SSSLEDCommandQ */
+void *SSSLEDCommandQTbl[SSS_LED_COMMAND_Q_SIZE]; /*Storage for SSSLEDCommandQ*/
+
+
+/*
+ * Handle to our MicroC/OS-II LED Event Flag.  Each flag corresponds to one of
+ * the LEDs on the Nios Development board, D0 - D7. 
+ */
+OS_FLAG_GRP *SSSLEDEventFlag;
+
+/*
+ * Handle to our MicroC/OS-II LED Lightshow Semaphore. The semaphore is checked 
+ * by the LED7SegLightshowTask each time it updates 7 segment LED displays, 
+ * U8 and U9.  The LEDManagementTask grabs the semaphore away from the lightshow task to
+ * toggle the lightshow off, and gives up the semaphore to turn the lightshow
+ * back on.  The LEDManagementTask does this in response to the CMD_LEDS_LIGHTSHOW
+ * command sent from the SSSSimpleSocketServerTask when the user sends a toggle 
+ * lightshow command over the TCPIP socket.
+ */
+OS_EVENT *SSSLEDLightshowSem;
+
+/* Definition of Task Stacks for tasks not invoked by TK_NEWTASK 
+ * (do not use NicheStack) 
+ */
+
+OS_STK    LEDManagementTaskStk[TASK_STACKSIZE];
+OS_STK    UserTaskStk[TASK_STACKSIZE];
+
+/*
+ * Create our MicroC/OS-II resources. All of the resources beginning with 
+ * "SSS" are declared in this file, and created in this function.
+ */
+void SSSCreateOSDataStructs(void)
+{
+  INT8U error_code;
+  
+  /*
+  * Create the resource for our MicroC/OS-II Queue for sending commands 
+  * received on the TCP/IP socket from the SSSSimpleSocketServerTask()
+  * to the LEDManagementTask().
+  */
+  SSSLEDCommandQ = OSQCreate(&SSSLEDCommandQTbl[0], SSS_LED_COMMAND_Q_SIZE);
+  if (!SSSLEDCommandQ)
+  {
+     alt_uCOSIIErrorHandler(EXPANDED_DIAGNOSIS_CODE, 
+     "Failed to create SSSLEDCommandQ.\n");
+  }
+  
+ /* Create our MicroC/OS-II LED Lightshow Semaphore.  The semaphore is checked 
+  * by the SSSLEDLightshowTask each time it updates 7 segment LED displays, 
+  * U8 and U9.  The LEDTask grabs the semaphore away from the lightshow task to
+  * toggle the lightshow off, and gives up the semaphore to turn the lightshow
+  * back on.  The LEDTask does this in response to the CMD_LEDS_LIGHTSHOW
+  * command sent from the SSSSimpleSocketServerTask when the user sends the 
+  * toggle lightshow command over the TCPIP socket.
+  */
+  SSSLEDLightshowSem = OSSemCreate(1);
+  if (!SSSLEDLightshowSem)
+  {
+     alt_uCOSIIErrorHandler(EXPANDED_DIAGNOSIS_CODE, 
+                            "Failed to create SSSLEDLightshowSem.\n");
+  }
+  
+ /*
+  * Create our MicroC/OS-II LED Event Flag.  Each flag corresponds to one of
+  * the LEDs on the Nios Development board, D0 - D7. 
+  */   
+  SSSLEDEventFlag = OSFlagCreate(0, &error_code);
+  if (!SSSLEDEventFlag)
+  {
+     alt_uCOSIIErrorHandler(error_code, 0);
+  }
+}
+
+/* This function creates tasks used in this example which do not use sockets.
+ * Tasks which use Interniche sockets must be created with TK_NEWTASK.
+ */
+
+void SSSCreateTasks(void)
+{
+   INT8U error_code;
+   int i;
+/*
+   error_code = OSTaskCreateExt(UserTask,
+                             NULL,
+                             (void *)&UserTaskStk[TASK_STACKSIZE-1],
+                             USER_TASK_PRIORITY,
+                             USER_TASK_PRIORITY,
+                             UserTaskStk,
+                             TASK_STACKSIZE,
+                             NULL,
+                             0);
+   
+   alt_uCOSIIErrorHandler(error_code, 0);
+  
+   error_code = OSTaskCreateExt(LEDManagementTask,
+                              NULL,
+                              (void *)&LEDManagementTaskStk[TASK_STACKSIZE-1],
+                              LED_MANAGEMENT_TASK_PRIORITY,
+                              LED_MANAGEMENT_TASK_PRIORITY,
+                              LEDManagementTaskStk,
+                              TASK_STACKSIZE,
+                              NULL,
+                              0);
+
+   alt_uCOSIIErrorHandler(error_code, 0);
+*/
+}
+
+
+void sss_reset_connection(SSSConn* conn) {
+  memset(conn, 0, sizeof(SSSConn));
+  conn->fd = -1;
+  conn->state = READY;
+  conn->rx_wr_pos = conn->rx_buffer;
+  conn->rx_rd_pos = conn->rx_buffer;
+  return;
+}
+
+
+ushort swap2(ushort arg){
+	return( ( (arg & 0x00ff)<<8) + ((arg & 0xff00)>>8) );
+}
+unsigned short checksum(ushort *buffer, int size){
+//для IP и ICMP
+unsigned long cksum=0;
+ushort res;
+while(size > 1) { cksum+=*buffer++; size -= 2; }
+if(size) cksum += *(unsigned char *)buffer;
+cksum = (cksum >> 16) + (cksum & 0xffff);
+cksum += (cksum >>16);
+res = ~cksum ;
+return ( res );
+}
+
+void SSSSimpleSocketServerTask(){
+
+//  int fd_listen, actual_len,len,result;
+//  struct sockaddr_in addr;
+//  struct sockaddr_in addr_client;//
+//  static SSSConn conn;
+//  fd_set readfds;   // массив дескрипторов сокетов со счетчиком
+//  PACKET p_udp;
+
+  struct mac_raw{
+	     short st;
+	     char dest_mac0;
+	     char dest_mac1;
+	     char dest_mac2;
+	     char dest_mac3;
+	     char dest_mac4;
+	     char dest_mac5;
+	     char source_mac0;
+	     char source_mac1;
+	     char source_mac2;
+	     char source_mac3;
+	     char source_mac4;
+	     char source_mac5;
+         ushort type_len;
+  } *mac_header;
+
+  struct udp_raw  {
+     unshort  ud_srcp;    /* source port */
+     unshort  ud_dstp;    /* dest port */
+     unshort  ud_len;     /* length of UDP packet  вместе с заголовком*/
+     unshort  ud_cksum;   /* UDP checksum */
+  } *udp_header;
+
+  struct ip_raw   {
+     u_char   ip_ver_ihl;    /* 4 bit version, 4 bit hdr len in 32bit words   0x54 - версия ip4 длина заголовка 5 32 разрядных */
+     u_char   ip_tos;        /* Type of Service  как правило 0 */
+     unshort  ip_len;        /* Total packet length including header */
+     unshort  ip_id;         /* ID for fragmentation */
+     unshort  ip_flgs_foff;  /* mask in flags as needed */
+     u_char   ip_time;       /* Time to live (secs)  время жизни  сек*/
+     u_char   ip_prot;       /* protocol   udp=0x11 */
+     unshort  ip_chksum;     /* Header checksum */
+     ip_addr  ip_src;        /* Source name  адрес источника */
+     ip_addr  ip_dest;       /* Destination name  адрес получателя */
+  } *ip_header;
+
+	 char buffer[1066];
+     int k,i,res;
+  // память под буфер
+  //buffer=npalloc(2048) ;
+
+#define data_len 1024
+
+  udp_header=(struct udp_raw * )(buffer+sizeof(struct ip_raw) + sizeof(struct mac_raw) );
+  udp_header->ud_cksum=0;  // типа не используем
+  udp_header->ud_srcp=htons(54035);
+  udp_header->ud_dstp=htons(54035);
+  udp_header->ud_len=swap2(data_len+sizeof(struct udp_raw) );
+
+  ip_header= (struct ip_raw * )(buffer+sizeof(struct mac_raw) );
+  ip_header->ip_ver_ihl=0x45;  // длина заголовка и версия
+  ip_header->ip_tos=0;
+  ip_header->ip_len=swap2(data_len+sizeof(struct udp_raw)+sizeof(struct ip_raw) );
+ // ip_header->ip_len=0xff00; //swap2(udp_header->ud_len+sizeof(struct ip_raw) );
+  ip_header->ip_id=0;   // это для
+  ip_header->ip_flgs_foff=0; // сборки пакетов
+  ip_header->ip_time=2;
+  ip_header->ip_prot=0x11; //udp
+  ip_header->ip_chksum= 0;
+  ip_header->ip_src=192L + (168L<<8) + (0L<<16) + (55L<<24);
+  ip_header->ip_dest=192L + (168L<<8) + (0L<<16) + (3L<<24);
+  ip_header->ip_chksum= checksum((ushort *)ip_header, 20);
+
+		  //IP4_ADDR( &i,  192, 168, 0, 55);
+		  //IP4_ADDR( &((*ip_header).ip_dest), 192, 168, 0, 3);
+
+  mac_header= buffer;
+  mac_header->st=0x0000;
+  mac_header->dest_mac0=0x00;
+  mac_header->dest_mac1=0x24;
+  mac_header->dest_mac2=0x81;
+  mac_header->dest_mac3=0xb1;
+  mac_header->dest_mac4=0xa8;
+  mac_header->dest_mac5=0xee;
+  mac_header->source_mac0=0x00;
+  mac_header->source_mac1=0x25;
+  mac_header->source_mac2=0x02;
+  mac_header->source_mac3=0x03;
+  mac_header->source_mac4=0x04;
+  mac_header->source_mac5=0x05;
+  mac_header->type_len=0x0008;
+
+
+
+	for(k=0;k<48;k++){
+		printf("%x ",buffer[k]);
+	}
+	OSTimeDlyHMSM(0,0,5,300);
+
+  i=0;
+  while(1)  {
+	  for(k=0;k<1000;k++){
+	    // пробуем остановить сервис
+
+	   LOCK_NET_RESOURCE(NET_RESID);
+
+    	res=tse_mac_raw_send( ext_net,
+    		buffer,
+    		data_len+sizeof( struct udp_raw) + sizeof( struct ip_raw) + sizeof( struct mac_raw)
+    	);
+    	/*
+    	    k= ip_header->ip_len + sizeof( struct mac_raw);
+			printf(" Not Send:  %d  %d\n",i++,k);
+        */
+      UNLOCK_NET_RESOURCE(NET_RESID);
+
+	  }// for(k
+
+		//printf("Pause start  %d\n",i++);
+		//OSTimeDlyHMSM(0,0,0,1);
+
+  } // while(1)
+
+}
+

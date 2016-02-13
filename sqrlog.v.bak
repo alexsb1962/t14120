@@ -1,0 +1,103 @@
+// 
+module sqrlog (
+		output  [31:0] data,  //  out0.data
+		input  wire       nios_ready, //      .ready
+		output         nios_valid, //      .valid
+		output         nios_sop,   //      .startofpacket
+		output [1:0]  nios_empty, //      .empty
+		output         nios_eop,   //      .endofpacket
+		input  wire        nios_clk,   
+		input  wire        fft_clk,    
+		input  wire        reset,  
+        input wire [31:0] fft_re,
+        input wire [31:0] fft_im,
+		  input wire fft_valid,
+		  input wire fft_sop,
+		  input wire fft_eop,
+		  output  wire fft_ready
+	);
+
+	 wire fifo_empty, fifo_full, delay_valid, delay_eop,delay_sop,wrreq;
+	 reg was_sop,was_eop;
+	 wire[31:0] log;
+	 
+	 
+	 
+	 assign nios_valid= ! fifo_empty;
+	 assign fft_ready= ! fifo_full;
+	 assign nios_empty[1:0] = 0; 
+	
+	// wrreq - запись в fifo --> был sop, есть valid после арифметики, не было eop, не заполнено?
+	always @( posedge reset or posedge delay_sop or posedge delay_eop)
+	begin
+	    if(reset) begin
+		     was_sop<=0; was_eop<=0;
+		 end
+		 else begin
+		    if(delay_sop) begin was_sop<=1; was_eop<=0; end
+		    if(delay_eop) begin was_eop<=1; was_sop<=0; end
+		 end
+	end
+	assign wrreq = was_sop & delay_valid & !was_eop;
+	
+
+	delay delay_valid_inst(   .clk(fft_clk), .reset(reset), .bit(fft_valid), .delay_bit( delay_valid ) );
+	delay delay_sop_inst(   .clk(fft_clk), .reset(reset), .bit(fft_sop), .delay_bit( delay_sop ) );
+	delay delay_eop_inst(   .clk(fft_clk), .reset(reset), .bit(fft_sop), .delay_bit( delay_eop ) );
+		
+   calc calc_inst( .clk(fft_clk), .fft_re(fft_re), .fft_im(fft_im), .result(log), .clk_en(  1 )   	);
+	
+	fifo_res fifo_res_inst(	.aclr(reset),	.data(log ),	.rdclk(nios_clk),	.rdreq( nios_ready  ),	.rdempty(fifo_empty),
+                           .wrclk(fft_clk),	.wrreq( wrreq),	.q(data),	.wrfull( fifo_full) 
+								 );
+endmodule
+
+module delay
+#( parametr LEN=46 )
+(
+    input clk,reset,
+	 input bit,
+	 output delay_bit
+	 );
+	 
+	 reg[LEN-1:0] d;
+	 always @( posedge clk)
+	 begin
+	    if(reset) 
+		 begin
+		    d<=0;
+		 end
+		 else begin
+		    d[LEN-2:0]<=d[LEN-1:1];
+			 d[LEN-1]<=bit;
+		 end
+	 end
+	 assign delay_bit=d[0];
+endmodule	 
+
+// на входе комплексный поток с выхода FFT
+// на выходе логарифм от модуля
+module calc( 
+   input clk,
+	input[31:0] fft_re,
+	input[31:0] fft_im,
+	output reg[31:0] result,
+	input clk_en
+	);
+	
+	    wire[31:0] fft_re2,fft_im2,fft_abs, log;	
+	 // латентность = 11 + 14 + 21 +1
+
+	 always @(posedge clk)
+	 begin
+	    if(clk_en)
+	        result<=log;
+	 end
+	 
+		// натуральный логарифм от суммы квадратов
+	fmult fmult_re_inst(	 .clock ( clk ),.clk_en ( clk_en ), .dataa ( fft_re ),.datab ( fft_re ),.result ( fft_re2 )	    );  //11
+	fmult fmult_im_inst(	 .clock ( clk ),.clk_en ( clk_en ), .dataa ( fft_im ),.datab ( fft_im ),.result ( fft_im2 )	    ); //11
+	fadd  fadd2_inst   (	 .clock ( clk ),.clk_en ( clk_en ), .dataa ( fft_im2 ),.datab ( fft_re2 ),.result ( fft_abs )	    );  //14
+	flog  flog_inst    (	 .clock ( clk ),.clk_en ( clk_en ), .data ( fft_abs ),.result ( log )	    );  //21
+
+endmodule

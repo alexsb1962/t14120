@@ -1,0 +1,41 @@
+Mon Sep 10 5:09:30 ??????, ?????? (????) 2012
+Trace back: invalid command name ".main_pane.dataflow.interior.cs.body.pw.df.c"
+    while executing
+".main_pane.dataflow.interior.cs.body.pw.df.c Deactivate .main_pane.dataflow"
+    (in namespace inscope "::" script line 1)
+    invoked from within
+"namespace inscope :: {.main_pane.dataflow.interior.cs.body.pw.df.c Deactivate} .main_pane.dataflow"
+    ("eval" body line 1)
+    invoked from within
+"eval $itk_option(-deactivatecommand) $frame_name"
+    (object "::.main_pane.dataflow" method "::mtiwidgets::WindowObj::Deactivate" body line 13)
+    invoked from within
+"$_currentActive_ Deactivate"
+    (object "::.main_pane.source" method "::mtiwidgets::Paneframe::Activate" body line 4)
+    invoked from within
+"chain"
+    (object "::.main_pane.source" method "::mtiwidgets::WindowObj::Activate" body line 10)
+    invoked from within
+"$window Activate """
+    (object "::.vcop" method "::vsimwidgets::Vcop::ActualActivate" body line 34)
+    invoked from within
+"::.vcop ActualActivate"
+    (in namespace inscope "::vsimwidgets::Vcop" script line 1)
+    invoked from within
+"namespace inscope ::vsimwidgets::Vcop {::.vcop ActualActivate}"
+    ("after" script)
+  2: ::tkerror {invalid command name ".main_pane.dataflow.interior.cs.body.pw.df.c"}
+  1: ::bgerror {invalid command name ".main_pane.dataflow.interior.cs.body.pw.df.c"}
+Thu Sep 13 22:49:50 ??????, ?????? (????) 2012
+Trace back: window ".footer.dataflow_frame.gauge" isn't packed
+    while executing
+"pack info $footer.gauge"
+    (procedure "gauge_undisplay" line 5)
+    invoked from within
+"gauge_undisplay $nl"
+    (procedure "dfCloseGauge" line 3)
+    invoked from within
+"dfCloseGauge .main_pane.dataflow.interior.cs.body.pw.df.c"
+    ("after" script)
+  2: ::tkerror {window ".footer.dataflow_frame.gauge" isn't packed}
+  1: ::bgerror {window ".footer.dataflow_frame.gauge" isn't packed}

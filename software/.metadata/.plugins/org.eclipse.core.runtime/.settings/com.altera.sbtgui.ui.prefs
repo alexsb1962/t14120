@@ -1,0 +1,6 @@
+#Wed Jul 04 15:57:10 EEST 2012
+newSoftwareExampleWizardPage.defaultLocation=D\:\\test\\asvm\\software\\RamTest
+newSoftwareExampleWizardPage.sopcinfoFile=D\:\\test\\asvm\\DE2_115_SOPC.sopcinfo
+newApplicationWizardPage.defaultLocation=D\:\\test\\asvm\\software\\dma
+eclipse.preferences.version=1
+newSoftwareExampleWizardPage2.newBspLocation=D\:\\test\\asvm\\software\\RamTest_bsp

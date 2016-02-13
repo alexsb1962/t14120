@@ -1,0 +1,54 @@
+# clk_50
+# cpu
+set_global_assignment -name SDC_FILE [file join $::quartus(qip_path) cpu.sdc]
+set_global_assignment -name SOURCE_FILE [file join $::quartus(qip_path) cpu.ocp]
+# sysid
+# timer
+# onchip_memory2
+# clock_crossing_io
+# tri_state_bridge_flash
+# cfi_flash
+# sdram
+# key
+# sma_in
+# sma_out
+# sw
+# ledg
+# ledr
+# lcd
+# sram
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) ip/TERASIC_SRAM/TERASIC_SRAM_hw.tcl]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) ip/TERASIC_SRAM/TERASIC_SRAM.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) sram.v]
+# seg7
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) ip/TERASIC_SEG7/SEG7_IF_hw.tcl]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) ip/TERASIC_SEG7/SEG7_IF.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) seg7.v]
+# jtag_uart
+# pll
+set_global_assignment -name TCL_FILE [file join $::quartus(ip_rootpath) altera/sopc_builder_ip/altera_avalon_altpll/altera_avalon_altpll_hw.tcl]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) pll.v]
+# usb
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) ip/TERASIC_ISP1362/ISP1362_IF_hw.tcl]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) ip/TERASIC_ISP1362/ISP1362_IF.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) usb.v]
+# tse_mac
+set_global_assignment -name SDC_FILE [file join $::quartus(qip_path) tse_mac_constraints.sdc]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) tse_mac.qip]
+# sgdma_tx
+# sgdma_rx
+# descriptor_memory
+# sgdma_f
+# fdata_0
+set_global_assignment -name TCL_FILE [file join $::quartus(qip_path) fdata_hw.tcl]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) fdata.v]
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) fdata_0.v]
+# descf
+# null
+set_global_assignment -name SDC_FILE [file join $::quartus(ip_rootpath) altera/sopc_builder_ip/altera_avalon_clock_adapter/altera_avalon_clock_adapter.sdc]
+# ctrl_pio
+# pio_0
+# tune_pio0
+# tune_pio1
+set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID 00216BB468C80000013A237D7451 
+ 

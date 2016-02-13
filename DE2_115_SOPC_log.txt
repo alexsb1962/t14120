@@ -1,0 +1,136 @@
+Altera SOPC Builder Version 11.01 Build 208
+Copyright (c) 1999-2009 Altera Corporation.  All rights reserved.
+
+
+No .sopc_builder configuration file(!)
+# 2012.10.03 01:00:56 (*) mk_custom_sdk starting
+# 2012.10.03 01:00:56 (*) Reading project D:/test/asvm/DE2_115_SOPC.ptf.
+
+# 2012.10.03 01:00:56 (*) Finding all CPUs
+# 2012.10.03 01:00:56 (*) Finding all available components
+# 2012.10.03 01:00:56 (*) Reading D:/test/asvm/.sopc_builder/install.ptf
+
+# 2012.10.03 01:00:56 (*) Found 63 components
+
+# 2012.10.03 01:00:57 (*) Finding all peripherals
+
+# 2012.10.03 01:00:57 (*) Finding software components
+
+# 2012.10.03 01:00:58 (*) (Legacy SDK Generation Skipped)
+# 2012.10.03 01:00:58 (*) (All TCL Script Generation Skipped)
+# 2012.10.03 01:00:58 (*) (No Libraries Built)
+# 2012.10.03 01:00:58 (*) (Contents Generation Skipped)
+# 2012.10.03 01:00:58 (*) mk_custom_sdk finishing
+
+# 2012.10.03 01:00:58 (*) Starting generation for system: DE2_115_SOPC.
+
+.
+.
+.
+..
+.
+.
+......
+.
+...
+.......
+.
+
+# 2012.10.03 01:01:00 (*) Running Generator Program for cpu
+
+# 2012.10.03 01:01:01 (*) Starting Nios II generation
+# 2012.10.03 01:01:02 (*)   Checking for plaintext license.
+# 2012.10.03 01:01:02 (*)   Plaintext license not found.
+# 2012.10.03 01:01:02 (*)   Checking for encrypted license (non-evaluation).
+# 2012.10.03 01:01:02 (*)   Encrypted license found.  SOF will not be time-limited.
+# 2012.10.03 01:01:02 (*)   Getting CPU configuration settings
+# 2012.10.03 01:01:02 (*)   Elaborating CPU configuration settings
+# 2012.10.03 01:01:02 (*)   Creating all objects for CPU
+
+# 2012.10.03 01:01:02 (*)     Testbench
+# 2012.10.03 01:01:02 (*)     Instruction decoding
+# 2012.10.03 01:01:02 (*)       Instruction fields
+# 2012.10.03 01:01:03 (*)       Instruction decodes
+# 2012.10.03 01:01:03 (*)       Signals for RTL simulation waveforms
+# 2012.10.03 01:01:04 (*)       Instruction controls
+# 2012.10.03 01:01:04 (*)     Pipeline frontend
+# 2012.10.03 01:01:04 (*)     Pipeline backend
+# 2012.10.03 01:01:08 (*)   Generating HDL from CPU objects
+# 2012.10.03 01:01:11 (*)   Creating encrypted HDL
+
+# 2012.10.03 01:01:13 (*) Done Nios II generation
+
+# 2012.10.03 01:01:14 (*) Running Generator Program for sysid
+
+# 2012.10.03 01:01:15 (*) Running Generator Program for timer
+
+# 2012.10.03 01:01:17 (*) Running Generator Program for onchip_memory2
+
+# 2012.10.03 01:01:19 (*) Running Generator Program for cfi_flash
+
+# 2012.10.03 01:01:20 (*) Running Generator Program for sdram
+
+# 2012.10.03 01:01:22 (*) Running Generator Program for key
+
+# 2012.10.03 01:01:24 (*) Running Generator Program for sma_in
+
+# 2012.10.03 01:01:26 (*) Running Generator Program for sma_out
+
+# 2012.10.03 01:01:27 (*) Running Generator Program for sw
+
+# 2012.10.03 01:01:29 (*) Running Generator Program for ledg
+
+# 2012.10.03 01:01:31 (*) Running Generator Program for ledr
+
+# 2012.10.03 01:01:33 (*) Running Generator Program for lcd
+
+# 2012.10.03 01:01:34 (*) Running Generator Program for jtag_uart
+
+# 2012.10.03 01:01:36 (*) Running Generator Program for sgdma_tx
+
+# 2012.10.03 01:01:39 (*) Running Generator Program for sgdma_rx
+
+# 2012.10.03 01:01:41 (*) Running Generator Program for descriptor_memory
+
+# 2012.10.03 01:01:43 (*) Running Generator Program for sgdma_f
+
+# 2012.10.03 01:01:46 (*) Running Generator Program for descf
+
+# 2012.10.03 01:01:48 (*) Running Generator Program for ctrl_pio
+
+# 2012.10.03 01:01:49 (*) Running Generator Program for pio_0
+
+# 2012.10.03 01:01:51 (*) Running Generator Program for tune_pio0
+
+# 2012.10.03 01:01:53 (*) Running Generator Program for tune_pio1
+
+# 2012.10.03 01:01:55 (*) Running Generator Program for DE2_115_SOPC_clock_0
+
+# 2012.10.03 01:01:57 (*) Running Generator Program for clock_crossing_io
+
+.
+
+
+# 2012.10.03 01:01:58 (*) Running Test Generator Program for sdram
+
+# 2012.10.03 01:02:00 (*) Making arbitration and system (top) modules.
+
+# 2012.10.03 01:02:23 (*) Generating Quartus symbol for top level: DE2_115_SOPC
+
+# 2012.10.03 01:02:23 (*) Generating Symbol D:/test/asvm/DE2_115_SOPC.bsf
+
+# 2012.10.03 01:02:23 (*) Creating command-line system-generation script: D:/test/asvm/DE2_115_SOPC_generation_script
+
+# 2012.10.03 01:02:23 (*) Running setup for HDL simulator: modelsim
+
+
+# 2012.10.03 01:02:24 (*) Completed generation for system: DE2_115_SOPC.
+# 2012.10.03 01:02:24 (*) THE FOLLOWING SYSTEM ITEMS HAVE BEEN GENERATED:
+  SOPC Builder database : D:/test/asvm/DE2_115_SOPC.ptf 
+  System HDL Model : D:/test/asvm/DE2_115_SOPC.v 
+  System Generation Script : D:/test/asvm/DE2_115_SOPC_generation_script 
+
+# 2012.10.03 01:02:24 (*) SUCCESS: SYSTEM GENERATION COMPLETED.
+
+
+Press 'Exit' to exit.

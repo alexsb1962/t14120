@@ -1,0 +1,15 @@
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) fir.v] -library lib_fir
+set_global_assignment -name VERILOG_FILE [file join $::quartus(qip_path) fir/altera_avalon_sc_fifo.v] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/auk_dspip_avalon_streaming_controller_hpfir.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/auk_dspip_avalon_streaming_sink_hpfir.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/auk_dspip_avalon_streaming_source_hpfir.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/auk_dspip_roundsat_hpfir.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/auk_dspip_math_pkg_hpfir.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/auk_dspip_lib_pkg_hpfir.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/fir_0002_rtl.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/fir_0002_rtl_wysiwyg.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/fir_0002_ast.vhd] -library lib_fir
+set_global_assignment -name VHDL_FILE [file join $::quartus(qip_path) fir/fir_0002.vhd] -library lib_fir
+set_global_assignment -name SDC_FILE [file join $::quartus(qip_path) fir/fir_0002.sdc] -library lib_fir
+set_global_assignment -name SOPC_BUILDER_SIGNATURE_ID ipds 
+ 

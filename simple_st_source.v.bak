@@ -1,0 +1,32 @@
+// simple_st_source.v
+
+// This file was auto-generated as a prototype implementation of a module
+// created in component editor.  It ties off all outputs to ground and
+// ignores all inputs.  It needs to be edited to make it do something
+// useful.
+// 
+// This file will not be automatically regenerated.  You should check it in
+// to your version control system if you want to keep it.
+
+`timescale 1 ps / 1 ps
+module simple_st_source (
+		input  wire       ready, // avalon_streaming_source.ready
+		output wire       valid, //                        .valid
+		output wire [7:0] data,  //                        .data
+		output wire       sop,   //                        .startofpacket
+		output wire       eop,   //                        .endofpacket
+		input  wire       clk,   //              clock_sink.clk
+		input  wire       reset  //                        .reset
+	);
+
+	// TODO: Auto-generated HDL template
+
+	assign eop = 1'b0;
+
+	assign valid = 1'b0;
+
+	assign sop = 1'b0;
+
+	assign data = 8'b00000000;
+
+endmodule

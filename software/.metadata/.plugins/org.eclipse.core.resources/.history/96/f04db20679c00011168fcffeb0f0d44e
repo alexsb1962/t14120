@@ -1,0 +1,105 @@
+// adc.c
+#include "adc.h"
+#include "altera_avalon_pio_regs.h"
+#include "sys\alt_dma.h"
+
+//#include <altera_avalon_dma.h>
+
+   int cpu_sr;
+
+alt_sgdma_dev *PDmaDevice;
+alt_dma_rxchan rx_dma;
+alt_dma_txchan tx_dma;
+
+unsigned char AdcBuf0[BlockSize];//  __attribute__ ((section ("sram")  ) );
+unsigned char AdcBuf1[BlockSize];//  __attribute__ ((section ("sram")  ) );
+
+alt_sgdma_descriptor Desc0 __attribute__ ((section ("desc")  ) );
+alt_sgdma_descriptor Desc1  __attribute__ ((section ("desc")  ) );
+alt_sgdma_descriptor NextDesc0  __attribute__ ((section ("desc")  ) );
+alt_sgdma_descriptor NextDesc1  __attribute__ ((section ("desc")  ) );
+
+void InitADC(){
+    int i;
+    for(i=0;i<BlockSize;i++) {AdcBuf0[i]=0x55;AdcBuf1[i]=0xaa;}
+
+	PDmaDevice= alt_avalon_sgdma_open (SGDMA_F_NAME);  // строка имени из system.h
+//	rx_dma= alt_dma_rxchan_open (DMA_0_NAME);
+//	tx_dma= alt_dma_txchan_open (DMA_0_NAME);
+}
+
+volatile alt_u8 Signal_tx,Signal_rx;
+
+void  rx_done( void *handle, void *data ){
+	//
+	Signal_rx++;
+}
+void  tx_done( void *handle ){
+	//
+	Signal_tx++;
+}
+void ADCToMem1( alt_u8  * Buf, unsigned int Len){
+	int result;
+
+//	result= alt_dma_rxchan_ioctl (rx_dma,ALT_DMA_SET_MODE_32,NULL);
+//	result= alt_dma_rxchan_ioctl (rx_dma,ALT_DMA_RX_ONLY_ON,NULL);
+
+	Signal_tx=0;Signal_rx=0;
+
+	result=alt_dma_txchan_send (tx_dma,AdcBuf0,64,	tx_done,	NULL);
+	result= alt_dma_rxchan_prepare (rx_dma,AdcBuf1,	64,	rx_done,	NULL);
+	while(!Signal_tx);
+	while(!Signal_rx);
+
+
+}
+
+void ADCToMem( alt_u32  * Buf, unsigned int Len){
+	alt_u8 Status;
+
+	alt_u16 BSize=BlockSize;
+    int i;
+    alt_u32 *CurrentAdr= Buf;
+
+
+    OS_ENTER_CRITICAL();
+    alt_avalon_sgdma_construct_stream_to_mem_desc(
+	                                  &Desc0,
+	                                  &NextDesc0,
+	                                  Buf,
+	                                  BSize,         //             length_or_eop (bytes?)
+	                                  0);
+/*
+    IOWR_16DIRECT(&NextDesc0.bytes_to_transfer,0,0x0000);
+    IOWR_8DIRECT(&NextDesc0.control,0,0x00);
+
+    IOWR_ALTERA_AVALON_PIO_DATA(LEDR_BASE, 0x00);
+    IOWR_ALTERA_AVALON_PIO_DATA(LEDR_BASE, 0xff);
+    IOWR_ALTERA_AVALON_PIO_DATA(LEDR_BASE, 0x00);
+*/
+     OS_EXIT_CRITICAL();
+
+
+    for(i=Len/BSize;i>0;i--){
+        OS_ENTER_CRITICAL();
+         Status= alt_avalon_sgdma_do_sync_transfer(PDmaDevice, &Desc0);
+         CurrentAdr+=BSize>>2;
+         // "перезарядка" дескриптора
+         IOWR_32DIRECT(&Desc0.write_addr, 0, CurrentAdr);
+         IOWR_8DIRECT(&Desc0.control,0,0x80);  // значение просто подсморел
+         IOWR_8DIRECT(&Desc0.status,0,0x00);
+          OS_EXIT_CRITICAL();
+
+     }
+}
+
+void AdcToUdp(int Len){
+
+}
+/*
+void alt_avalon_sgdma_register_callback(
+  alt_sgdma_dev *dev,
+  alt_avalon_sgdma_callback callback,
+  alt_u32 chain_control,
+  void *context);
+*/

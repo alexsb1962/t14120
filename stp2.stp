@@ -1,0 +1,444 @@
+<session jtag_chain="USB-Blaster [USB-0]" jtag_device="@1: EP3C120/EP4CE115 (0x020F70DD)" sof_file="DE2_115_WEB_SERVER.sof">
+  <display_tree gui_logging_enabled="0">
+    <display_branch instance="auto_signaltap_0" log="USE_GLOBAL_TEMP" signal_set="USE_GLOBAL_TEMP" trigger="USE_GLOBAL_TEMP"/>
+  </display_tree>
+  <instance entity_name="sld_signaltap" is_auto_node="yes" is_expanded="true" name="auto_signaltap_0" source_file="sld_signaltap.vhd">
+    <node_ip_info instance_id="0" mfg_id="110" node_id="0" version="6"/>
+    <position_info>
+      <single attribute="active tab" value="1"/>
+      <single attribute="setup vertical scroll position" value="0"/>
+      <single attribute="setup horizontal scroll position" value="0"/>
+    </position_info>
+    <signal_set global_temp="1" name="signal_set: 2012/06/15 13:40:46  #0">
+      <clock name="auto_stp_external_clock_0" polarity="posedge" tap_mode="classic"/>
+      <config ram_type="M4K" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="128" trigger_in_enable="no" trigger_out_enable="no"/>
+      <top_entity/>
+      <signal_vec>
+        <trigger_input_vec>
+          <wire alias="A_iw[0]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[0]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[10]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[10]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[11]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[11]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[12]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[12]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[13]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[13]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[14]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[14]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[15]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[15]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[16]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[16]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[17]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[17]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[18]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[18]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[19]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[19]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[1]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[1]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[20]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[20]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[21]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[21]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[22]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[22]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[23]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[23]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[24]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[24]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[25]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[25]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[26]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[26]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[27]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[27]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[28]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[28]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[29]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[29]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[2]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[2]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[30]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[30]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[31]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[31]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[3]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[3]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[4]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[4]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[5]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[5]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[6]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[6]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[7]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[7]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[8]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[8]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[9]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[9]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[0]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[0]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[10]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[10]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[11]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[11]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[12]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[12]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[13]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[13]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[14]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[14]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[15]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[15]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[16]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[16]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[17]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[17]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[18]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[18]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[19]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[19]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[1]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[1]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[20]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[20]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[21]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[21]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[22]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[22]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[23]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[23]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[24]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[24]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[25]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[25]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[26]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[26]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[27]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[27]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[2]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[2]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[3]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[3]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[4]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[4]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[5]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[5]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[6]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[6]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[7]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[7]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[8]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[8]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[9]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[9]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_valid" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_valid" tap_mode="probeonly" type="register"/>
+        </trigger_input_vec>
+        <data_input_vec>
+          <wire alias="A_iw[0]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[0]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[10]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[10]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[11]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[11]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[12]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[12]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[13]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[13]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[14]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[14]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[15]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[15]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[16]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[16]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[17]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[17]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[18]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[18]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[19]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[19]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[1]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[1]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[20]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[20]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[21]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[21]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[22]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[22]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[23]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[23]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[24]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[24]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[25]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[25]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[26]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[26]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[27]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[27]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[28]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[28]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[29]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[29]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[2]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[2]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[30]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[30]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[31]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[31]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[3]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[3]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[4]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[4]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[5]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[5]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[6]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[6]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[7]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[7]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[8]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[8]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[9]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[9]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[0]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[0]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[10]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[10]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[11]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[11]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[12]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[12]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[13]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[13]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[14]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[14]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[15]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[15]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[16]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[16]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[17]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[17]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[18]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[18]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[19]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[19]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[1]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[1]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[20]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[20]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[21]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[21]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[22]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[22]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[23]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[23]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[24]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[24]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[25]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[25]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[26]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[26]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[27]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[27]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[2]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[2]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[3]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[3]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[4]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[4]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[5]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[5]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[6]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[6]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[7]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[7]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[8]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[8]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[9]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[9]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_valid" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_valid" tap_mode="probeonly" type="register"/>
+        </data_input_vec>
+        <storage_qualifier_input_vec>
+          <wire alias="A_iw[0]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[0]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[10]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[10]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[11]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[11]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[12]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[12]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[13]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[13]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[14]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[14]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[15]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[15]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[16]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[16]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[17]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[17]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[18]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[18]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[19]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[19]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[1]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[1]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[20]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[20]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[21]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[21]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[22]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[22]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[23]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[23]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[24]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[24]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[25]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[25]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[26]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[26]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[27]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[27]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[28]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[28]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[29]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[29]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[2]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[2]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[30]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[30]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[31]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[31]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[3]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[3]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[4]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[4]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[5]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[5]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[6]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[6]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[7]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[7]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[8]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[8]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_iw[9]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[9]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[0]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[0]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[10]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[10]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[11]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[11]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[12]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[12]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[13]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[13]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[14]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[14]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[15]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[15]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[16]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[16]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[17]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[17]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[18]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[18]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[19]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[19]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[1]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[1]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[20]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[20]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[21]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[21]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[22]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[22]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[23]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[23]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[24]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[24]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[25]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[25]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[26]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[26]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[27]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[27]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[2]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[2]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[3]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[3]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[4]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[4]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[5]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[5]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[6]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[6]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[7]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[7]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[8]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[8]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_pcb[9]" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[9]" tap_mode="probeonly" type="unknown"/>
+          <wire alias="A_valid" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_valid" tap_mode="probeonly" type="register"/>
+        </storage_qualifier_input_vec>
+      </signal_vec>
+      <presentation>
+        <data_view>
+          <bus alias="PC" is_signal_inverted="no" link="none" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|Nios II Inst Address" order="lsb_to_msb" radix="mnemonics_plug_in" state="collapse" type="register">
+            <mnemonics_plugin plugin_name="Nios II" static_plugin_mnemonics_table_id="0" table_name="Nios II Inst Address" width="29">
+              <user_option/>
+              <internal_option>
+                <option name="pcNumBits" value="28"/>
+                <option name="pcAlignment" value="byte"/>
+                <option name="PlugInInstanceId" value="0"/>
+              </internal_option>
+            </mnemonics_plugin>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[0]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[1]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[2]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[3]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[4]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[5]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[6]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[7]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[8]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[9]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[10]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[11]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[12]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[13]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[14]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[15]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[16]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[17]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[18]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[19]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[20]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[21]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[22]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[23]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[24]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[25]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[26]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[27]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_valid"/>
+          </bus>
+          <bus alias="DIS" is_signal_inverted="no" link="none" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|Nios II Disassembly" order="lsb_to_msb" radix="mnemonics_plug_in" state="collapse" type="register">
+            <mnemonics_plugin plugin_name="Nios II" static_plugin_mnemonics_table_id="1" table_name="Nios II Disassembly" width="61">
+              <user_option/>
+              <internal_option>
+                <option name="pcNumBits" value="28"/>
+                <option name="pcAlignment" value="byte"/>
+                <option name="PlugInInstanceId" value="0"/>
+              </internal_option>
+            </mnemonics_plugin>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[0]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[1]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[2]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[3]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[4]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[5]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[6]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[7]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[8]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[9]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[10]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[11]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[12]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[13]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[14]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[15]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[16]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[17]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[18]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[19]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[20]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[21]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[22]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[23]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[24]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[25]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[26]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[27]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[0]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[1]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[2]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[3]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[4]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[5]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[6]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[7]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[8]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[9]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[10]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[11]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[12]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[13]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[14]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[15]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[16]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[17]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[18]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[19]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[20]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[21]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[22]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[23]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[24]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[25]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[26]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[27]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[28]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[29]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[30]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[31]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_valid"/>
+          </bus>
+        </data_view>
+        <setup_view>
+          <bus alias="Inst" is_signal_inverted="no" link="none" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|Nios II Instruction" order="lsb_to_msb" radix="mnemonics_plug_in" state="collapse" type="register">
+            <mnemonics_plugin plugin_name="Nios II" table_name="Nios II Instruction" width="61">
+              <user_option>
+                <option description="Optional ELF file containing program symbols" name="ELF File" type="file" value="D:/test/asvm/software/asvm14150/asvm14150.elf"/>
+              </user_option>
+              <internal_option>
+                <option name="pcNumBits" value="28"/>
+                <option name="pcAlignment" value="byte"/>
+                <option name="PlugInInstanceId" value="0"/>
+              </internal_option>
+            </mnemonics_plugin>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[0]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[1]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[2]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[3]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[4]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[5]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[6]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[7]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[8]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[9]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[10]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[11]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[12]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[13]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[14]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[15]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[16]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[17]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[18]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[19]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[20]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[21]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[22]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[23]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[24]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[25]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[26]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_pcb[27]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[0]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[1]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[2]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[3]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[4]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[5]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[6]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[7]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[8]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[9]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[10]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[11]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[12]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[13]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[14]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[15]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[16]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[17]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[18]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[19]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[20]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[21]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[22]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[23]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[24]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[25]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[26]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[27]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[28]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[29]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[30]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_iw[31]"/>
+            <net is_signal_inverted="no" name="DE2_115_SOPC:DE2_115_SOPC_inst|cpu:the_cpu|A_valid"/>
+          </bus>
+        </setup_view>
+      </presentation>
+      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2012/06/15 13:40:46  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="1" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_in="dont_care" trigger_out="active high" trigger_type="circular">
+        <power_up_trigger position="pre" storage_qualifier_disabled="no" trigger_in="dont_care" trigger_out="active high"/>
+        <events use_custom_flow_control="no">
+          <level enabled="yes" name="condition1" type="basic">
+            <power_up enabled="yes">
+            </power_up>
+            <op_node/>
+          </level>
+        </events>
+        <storage_qualifier_events>
+          <transitional>0000000000000000000000000000000000000000000000000000000000000
+            <pwr_up_transitional>0000000000000000000000000000000000000000000000000000000000000</pwr_up_transitional>
+          </transitional>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+          <storage_qualifier_level type="basic">
+            <power_up>
+            </power_up>
+            <op_node/>
+          </storage_qualifier_level>
+        </storage_qualifier_events>
+        <log>
+          <data global_temp="1" name="log: 2012/06/15 13:40:46  #2"/>
+          <extradata/>
+        </log>
+      </trigger>
+    </signal_set>
+  </instance>
+  <mnemonics/>
+  <global_info>
+    <single attribute="active instance" value="0"/>
+    <single attribute="config widget visible" value="1"/>
+    <single attribute="data log widget visible" value="1"/>
+    <single attribute="hierarchy widget visible" value="1"/>
+    <single attribute="instance widget visible" value="1"/>
+    <single attribute="jtag widget visible" value="1"/>
+    <single attribute="sof manager visible" value="1"/>
+    <multi attribute="frame size" size="2" value="1092,820"/>
+    <multi attribute="jtag widget size" size="2" value="334,180"/>
+  </global_info>
+</session>

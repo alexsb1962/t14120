@@ -1,0 +1,8 @@
+
+**** Build of configuration Nios II for project example ****
+
+make all 
+Info: Building ../asvm14150_bsp/
+make --no-print-directory -C ../asvm14150_bsp/
+[BSP build complete]
+[example build complete]

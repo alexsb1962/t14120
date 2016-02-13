@@ -1,0 +1,38 @@
+// dma_source.v
+
+// This file was auto-generated as a prototype implementation of a module
+// created in component editor.  It ties off all outputs to ground and
+// ignores all inputs.  It needs to be edited to make it do something
+// useful.
+// 
+// This file will not be automatically regenerated.  You should check it in
+// to your version control system if you want to keep it.
+
+`timescale 1 ps / 1 ps
+module dma_source (
+		input  wire        data_adr,             //    data_slave.address
+		input  wire        data_read,            //              .read
+		output wire [31:0] data_readdata,        //              .readdata
+		input  wire        data_write,           //              .write
+		input  wire [31:0] data_writedata,       //              .writedata
+		output wire        data_readdatavalid,   //              .readdatavalid
+		output wire        data_waitrequest,     //              .waitrequest
+		input  wire        clk,                  //         clock.clk
+		input  wire        reset,                //         reset.reset
+		input  wire        control_adr,          // control_slave.address
+		input  wire        control_write,        //              .write
+		input  wire [31:0] control_data,         //              .writedata
+		output wire        control_wait_request  //              .waitrequest
+	);
+
+	// TODO: Auto-generated HDL template
+
+	assign data_waitrequest = 1'b0;
+
+	assign data_readdata = 32'b00000000000000000000000000000000;
+
+	assign data_readdatavalid = 1'b0;
+
+	assign control_wait_request = 1'b0;
+
+endmodule

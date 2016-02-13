@@ -1,0 +1,11 @@
+Warning (10273): Verilog HDL warning at lcd.v(61): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_test_component.v(236): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_test_component.v(237): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_test_component.v(238): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at sdram_test_component.v(239): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at DE2_115_WEB_SERVER.v(684): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at DE2_115_WEB_SERVER.v(685): extended using "x" or "z"
+Warning (10273): Verilog HDL warning at TERASIC_SRAM.v(46): extended using "x" or "z"
+Warning (10268): Verilog HDL information at sqrlog_tb.v(132): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at window.v(38): always construct contains both blocking and non-blocking assignments
+Warning (10037): Verilog HDL or VHDL warning at sgdma_f.v(2190): conditional expression evaluates to a constant

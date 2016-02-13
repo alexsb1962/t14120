@@ -1,0 +1,60 @@
+`timescale 1ns / 1ps
+module window_tb;
+
+parameter HALF_ADC = 1000.0/120 /2;
+parameter HALF_FFT  = 1000.0/40  /2;
+
+reg adc_clk,fft_clk,reset;
+
+wire[31:0] sn;
+wire[31:0] cs;
+wire sop,eop,valid;
+
+integer fres;
+
+reg was_sop;
+
+
+initial
+begin
+  #0 reset=1;
+  #0 was_sop=0;
+  #0 adc_clk=1;
+  #0 fft_clk=1;
+  #63 reset=0;
+  fres=$fopen("win.txt","w");
+end
+
+
+always begin   #HALF_ADC  adc_clk=1;   #HALF_ADC  adc_clk=0;end
+always begin   #HALF_FFT  fft_clk=1;   #HALF_FFT  fft_clk=0;end
+
+always @(posedge fft_clk)
+begin
+   if(valid ) begin
+	   if(sop) was_sop<=1;
+		if(sop ) 	`  $fprintf(fres,"%X\n",sn);
+	end
+	if(valid & eop) $fclose(fres);
+end
+
+window w_inst(
+
+    .reset(reset),
+	 .clk(fft_clk),
+	 .sin_data(100),
+	 .cos_data(200),
+	 .source_ready(1),
+	 .source_sop(sop),
+	 .source_eop(eop),
+	 .source_valid(valid),
+	 .sn(sn),
+	 .cs(cs)
+
+);
+
+
+
+
+
+endmodule

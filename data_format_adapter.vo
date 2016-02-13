@@ -1,0 +1,834 @@
+//IP Functional Simulation Model
+//VERSION_BEGIN 11.0SP1 cbx_mgl 2011:07:03:21:10:12:SJ cbx_simgen 2011:07:03:21:07:09:SJ  VERSION_END
+// synthesis VERILOG_INPUT_VERSION VERILOG_2001
+// altera message_off 10463
+
+
+
+// Copyright (C) 1991-2011 Altera Corporation
+// Your use of Altera Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Altera Program License 
+// Subscription Agreement, Altera MegaCore Function License 
+// Agreement, or other applicable license agreement, including, 
+// without limitation, that your use is for the sole purpose of 
+// programming logic devices manufactured by Altera and sold by 
+// Altera or its authorized distributors.  Please refer to the 
+// applicable agreement for further details.
+
+// You may only use these simulation model output files for simulation
+// purposes and expressly not for synthesis or any other purposes (in which
+// event Altera disclaims all warranties of any kind).
+
+
+//synopsys translate_off
+
+//synthesis_resources = lut 78 mux21 66 oper_add 1 oper_decoder 1 oper_mux 23 
+`timescale 1 ps / 1 ps
+module  data_format_adapter
+	( 
+	clk,
+	in_data,
+	in_endofpacket,
+	in_ready,
+	in_startofpacket,
+	in_valid,
+	out_data,
+	out_empty,
+	out_endofpacket,
+	out_ready,
+	out_startofpacket,
+	out_valid,
+	reset_n) /* synthesis synthesis_clearbox=1 */;
+	input   clk;
+	input   [7:0]  in_data;
+	input   in_endofpacket;
+	output   in_ready;
+	input   in_startofpacket;
+	input   in_valid;
+	output   [31:0]  out_data;
+	output   [1:0]  out_empty;
+	output   out_endofpacket;
+	input   out_ready;
+	output   out_startofpacket;
+	output   out_valid;
+	input   reset_n;
+
+	reg	data_format_adapter_sop_register_55q;
+	reg	data_format_adapter_out_data_0_reg0_254q;
+	reg	data_format_adapter_out_data_10_reg0_244q;
+	reg	data_format_adapter_out_data_11_reg0_243q;
+	reg	data_format_adapter_out_data_12_reg0_242q;
+	reg	data_format_adapter_out_data_13_reg0_241q;
+	reg	data_format_adapter_out_data_14_reg0_240q;
+	reg	data_format_adapter_out_data_15_reg0_239q;
+	reg	data_format_adapter_out_data_16_reg0_238q;
+	reg	data_format_adapter_out_data_17_reg0_237q;
+	reg	data_format_adapter_out_data_18_reg0_236q;
+	reg	data_format_adapter_out_data_19_reg0_235q;
+	reg	data_format_adapter_out_data_1_reg0_253q;
+	reg	data_format_adapter_out_data_20_reg0_234q;
+	reg	data_format_adapter_out_data_21_reg0_233q;
+	reg	data_format_adapter_out_data_22_reg0_232q;
+	reg	data_format_adapter_out_data_23_reg0_231q;
+	reg	data_format_adapter_out_data_24_reg0_230q;
+	reg	data_format_adapter_out_data_25_reg0_229q;
+	reg	data_format_adapter_out_data_26_reg0_228q;
+	reg	data_format_adapter_out_data_27_reg0_227q;
+	reg	data_format_adapter_out_data_28_reg0_226q;
+	reg	data_format_adapter_out_data_29_reg0_225q;
+	reg	data_format_adapter_out_data_2_reg0_252q;
+	reg	data_format_adapter_out_data_30_reg0_224q;
+	reg	data_format_adapter_out_data_31_reg0_223q;
+	reg	data_format_adapter_out_data_3_reg0_251q;
+	reg	data_format_adapter_out_data_4_reg0_250q;
+	reg	data_format_adapter_out_data_5_reg0_249q;
+	reg	data_format_adapter_out_data_6_reg0_248q;
+	reg	data_format_adapter_out_data_7_reg0_247q;
+	reg	data_format_adapter_out_data_8_reg0_246q;
+	reg	data_format_adapter_out_data_9_reg0_245q;
+	reg	data_format_adapter_out_empty_0_reg0_221q;
+	reg	data_format_adapter_out_empty_1_reg0_257q;
+	reg	data_format_adapter_out_endofpacket_reg0_256q;
+	reg	data_format_adapter_out_startofpacket_reg0_255q;
+	reg	data_format_adapter_in_ready_d1_25q;
+	reg	data_format_adapter_out_valid_reg0_222q;
+	reg	data_format_adapter_state_d1_0_52q;
+	reg	data_format_adapter_state_d1_1_26q;
+	reg	data_format_adapter_state_register_0_54q;
+	reg	data_format_adapter_state_register_1_53q;
+	reg	data_format_adapter_data2_register_0_220q;
+	reg	data_format_adapter_data2_register_1_78q;
+	reg	data_format_adapter_data2_register_2_77q;
+	reg	data_format_adapter_data2_register_3_76q;
+	reg	data_format_adapter_data2_register_4_75q;
+	reg	data_format_adapter_data2_register_5_74q;
+	reg	data_format_adapter_data2_register_6_73q;
+	reg	data_format_adapter_data2_register_7_72q;
+	reg	data_format_adapter_data1_register_0_71q;
+	reg	data_format_adapter_data1_register_1_70q;
+	reg	data_format_adapter_data1_register_2_69q;
+	reg	data_format_adapter_data1_register_3_68q;
+	reg	data_format_adapter_data1_register_4_67q;
+	reg	data_format_adapter_data1_register_5_66q;
+	reg	data_format_adapter_data1_register_6_65q;
+	reg	data_format_adapter_data1_register_7_64q;
+	reg	data_format_adapter_data0_register_0_63q;
+	reg	data_format_adapter_data0_register_1_62q;
+	reg	data_format_adapter_data0_register_2_61q;
+	reg	data_format_adapter_data0_register_3_60q;
+	reg	data_format_adapter_data0_register_4_59q;
+	reg	data_format_adapter_data0_register_5_58q;
+	reg	data_format_adapter_data0_register_6_57q;
+	reg	data_format_adapter_data0_register_7_56q;
+	reg	data_format_adapter_a_data0_0_21q;
+	reg	data_format_adapter_a_data0_1_20q;
+	reg	data_format_adapter_a_data0_2_19q;
+	reg	data_format_adapter_a_data0_3_18q;
+	reg	data_format_adapter_a_data0_4_17q;
+	reg	data_format_adapter_a_data0_5_16q;
+	reg	data_format_adapter_a_data0_6_15q;
+	reg	data_format_adapter_a_data0_7_14q;
+	reg	data_format_adapter_a_endofpacket_23q;
+	reg	data_format_adapter_a_startofpacket_22q;
+	reg	data_format_adapter_a_valid_13q;
+	wire	wire_data_format_adapter_b_data_0_148m_dataout;
+	wire	wire_data_format_adapter_b_data_1_147m_dataout;
+	wire	wire_data_format_adapter_b_data_24_124m_dataout;
+	wire	wire_data_format_adapter_b_data_25_123m_dataout;
+	wire	wire_data_format_adapter_b_data_26_122m_dataout;
+	wire	wire_data_format_adapter_b_data_27_121m_dataout;
+	wire	wire_data_format_adapter_b_data_28_120m_dataout;
+	wire	wire_data_format_adapter_b_data_29_119m_dataout;
+	wire	wire_data_format_adapter_b_data_2_146m_dataout;
+	wire	wire_data_format_adapter_b_data_30_118m_dataout;
+	wire	wire_data_format_adapter_b_data_31_117m_dataout;
+	wire	wire_data_format_adapter_b_data_3_145m_dataout;
+	wire	wire_data_format_adapter_b_data_4_144m_dataout;
+	wire	wire_data_format_adapter_b_data_5_143m_dataout;
+	wire	wire_data_format_adapter_b_data_6_142m_dataout;
+	wire	wire_data_format_adapter_b_data_7_141m_dataout;
+	wire	wire_data_format_adapter_b_empty_103m_dataout;
+	wire	wire_data_format_adapter_b_empty_104m_dataout;
+	wire	wire_data_format_adapter_b_empty_83m_dataout;
+	wire	wire_data_format_adapter_b_empty_85m_dataout;
+	wire	wire_data_format_adapter_b_empty_88m_dataout;
+	wire	wire_data_format_adapter_b_empty_90m_dataout;
+	wire	wire_data_format_adapter_b_empty_92m_dataout;
+	wire	wire_data_format_adapter_b_empty_93m_dataout;
+	wire	wire_data_format_adapter_b_empty_97m_dataout;
+	wire	wire_data_format_adapter_b_empty_98m_dataout;
+	wire	wire_data_format_adapter_b_startofpacket_175m_dataout;
+	wire	wire_data_format_adapter_b_startofpacket_84m_dataout;
+	wire	wire_data_format_adapter_b_startofpacket_86m_dataout;
+	wire	wire_data_format_adapter_b_startofpacket_89m_dataout;
+	wire	wire_data_format_adapter_b_valid_105m_dataout;
+	wire	wire_data_format_adapter_b_valid_114m_dataout;
+	wire	wire_data_format_adapter_b_valid_99m_dataout;
+	wire	wire_data_format_adapter_mem_write0_102m_dataout;
+	wire	wire_data_format_adapter_mem_write2_173m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_0_162m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_1_161m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_2_160m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_3_159m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_4_158m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_5_157m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_6_156m_dataout;
+	wire	wire_data_format_adapter_mem_writedata0_7_155m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_0_170m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_1_169m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_2_168m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_3_167m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_4_166m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_5_165m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_6_164m_dataout;
+	wire	wire_data_format_adapter_mem_writedata1_7_163m_dataout;
+	wire	wire_data_format_adapter_new_state_100m_dataout;
+	wire	wire_data_format_adapter_new_state_101m_dataout;
+	wire	wire_data_format_adapter_new_state_109m_dataout;
+	wire	wire_data_format_adapter_new_state_110m_dataout;
+	wire	wire_data_format_adapter_new_state_112m_dataout;
+	wire	wire_data_format_adapter_new_state_113m_dataout;
+	wire	wire_data_format_adapter_new_state_95m_dataout;
+	wire	wire_data_format_adapter_new_state_96m_dataout;
+	wire	wire_data_format_adapter_out_valid_reg0_310m_dataout;
+	wire	wire_data_format_adapter_sop_mem_writedata_178m_dataout;
+	wire	wire_data_format_adapter_sop_mem_writeenable_174m_dataout;
+	wire	wire_data_format_adapter_sop_mem_writeenable_181m_dataout;
+	wire	wire_data_format_adapter_sop_mem_writeenable_87m_dataout;
+	wire	wire_data_format_adapter_state_0_81m_dataout;
+	wire	wire_data_format_adapter_state_1_80m_dataout;
+	wire  [1:0]   wire_data_format_adapter_add0_91_o;
+	wire  [3:0]   wire_data_format_adapter_decoder0_116_o;
+	wire  wire_data_format_adapter_mux0_125_o;
+	wire  wire_data_format_adapter_mux10_135_o;
+	wire  wire_data_format_adapter_mux11_136_o;
+	wire  wire_data_format_adapter_mux12_137_o;
+	wire  wire_data_format_adapter_mux13_138_o;
+	wire  wire_data_format_adapter_mux14_139_o;
+	wire  wire_data_format_adapter_mux15_140_o;
+	wire  wire_data_format_adapter_mux16_149_o;
+	wire  wire_data_format_adapter_mux17_150_o;
+	wire  wire_data_format_adapter_mux18_151_o;
+	wire  wire_data_format_adapter_mux19_152_o;
+	wire  wire_data_format_adapter_mux1_126_o;
+	wire  wire_data_format_adapter_mux20_153_o;
+	wire  wire_data_format_adapter_mux21_171_o;
+	wire  wire_data_format_adapter_mux22_172_o;
+	wire  wire_data_format_adapter_mux2_127_o;
+	wire  wire_data_format_adapter_mux3_128_o;
+	wire  wire_data_format_adapter_mux4_129_o;
+	wire  wire_data_format_adapter_mux5_130_o;
+	wire  wire_data_format_adapter_mux6_131_o;
+	wire  wire_data_format_adapter_mux7_132_o;
+	wire  wire_data_format_adapter_mux8_133_o;
+	wire  wire_data_format_adapter_mux9_134_o;
+	wire  s_wire_data_format_adapter_a_ready_107_dataout;
+	wire  s_wire_data_format_adapter_in_ready_177_dataout;
+	wire  s_wire_data_format_adapter_mem_writedata0_154_dataout;
+	wire  s_wire_vcc;
+
+	initial
+	begin
+		data_format_adapter_sop_register_55q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_sop_register_55q <= 0;
+		end
+		else if  (wire_data_format_adapter_sop_mem_writeenable_181m_dataout == 1'b1) 
+		begin
+			data_format_adapter_sop_register_55q <= wire_data_format_adapter_sop_mem_writedata_178m_dataout;
+		end
+	end
+	initial
+	begin
+		data_format_adapter_out_data_0_reg0_254q = 0;
+		data_format_adapter_out_data_10_reg0_244q = 0;
+		data_format_adapter_out_data_11_reg0_243q = 0;
+		data_format_adapter_out_data_12_reg0_242q = 0;
+		data_format_adapter_out_data_13_reg0_241q = 0;
+		data_format_adapter_out_data_14_reg0_240q = 0;
+		data_format_adapter_out_data_15_reg0_239q = 0;
+		data_format_adapter_out_data_16_reg0_238q = 0;
+		data_format_adapter_out_data_17_reg0_237q = 0;
+		data_format_adapter_out_data_18_reg0_236q = 0;
+		data_format_adapter_out_data_19_reg0_235q = 0;
+		data_format_adapter_out_data_1_reg0_253q = 0;
+		data_format_adapter_out_data_20_reg0_234q = 0;
+		data_format_adapter_out_data_21_reg0_233q = 0;
+		data_format_adapter_out_data_22_reg0_232q = 0;
+		data_format_adapter_out_data_23_reg0_231q = 0;
+		data_format_adapter_out_data_24_reg0_230q = 0;
+		data_format_adapter_out_data_25_reg0_229q = 0;
+		data_format_adapter_out_data_26_reg0_228q = 0;
+		data_format_adapter_out_data_27_reg0_227q = 0;
+		data_format_adapter_out_data_28_reg0_226q = 0;
+		data_format_adapter_out_data_29_reg0_225q = 0;
+		data_format_adapter_out_data_2_reg0_252q = 0;
+		data_format_adapter_out_data_30_reg0_224q = 0;
+		data_format_adapter_out_data_31_reg0_223q = 0;
+		data_format_adapter_out_data_3_reg0_251q = 0;
+		data_format_adapter_out_data_4_reg0_250q = 0;
+		data_format_adapter_out_data_5_reg0_249q = 0;
+		data_format_adapter_out_data_6_reg0_248q = 0;
+		data_format_adapter_out_data_7_reg0_247q = 0;
+		data_format_adapter_out_data_8_reg0_246q = 0;
+		data_format_adapter_out_data_9_reg0_245q = 0;
+		data_format_adapter_out_empty_0_reg0_221q = 0;
+		data_format_adapter_out_empty_1_reg0_257q = 0;
+		data_format_adapter_out_endofpacket_reg0_256q = 0;
+		data_format_adapter_out_startofpacket_reg0_255q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_out_data_0_reg0_254q <= 0;
+			data_format_adapter_out_data_10_reg0_244q <= 0;
+			data_format_adapter_out_data_11_reg0_243q <= 0;
+			data_format_adapter_out_data_12_reg0_242q <= 0;
+			data_format_adapter_out_data_13_reg0_241q <= 0;
+			data_format_adapter_out_data_14_reg0_240q <= 0;
+			data_format_adapter_out_data_15_reg0_239q <= 0;
+			data_format_adapter_out_data_16_reg0_238q <= 0;
+			data_format_adapter_out_data_17_reg0_237q <= 0;
+			data_format_adapter_out_data_18_reg0_236q <= 0;
+			data_format_adapter_out_data_19_reg0_235q <= 0;
+			data_format_adapter_out_data_1_reg0_253q <= 0;
+			data_format_adapter_out_data_20_reg0_234q <= 0;
+			data_format_adapter_out_data_21_reg0_233q <= 0;
+			data_format_adapter_out_data_22_reg0_232q <= 0;
+			data_format_adapter_out_data_23_reg0_231q <= 0;
+			data_format_adapter_out_data_24_reg0_230q <= 0;
+			data_format_adapter_out_data_25_reg0_229q <= 0;
+			data_format_adapter_out_data_26_reg0_228q <= 0;
+			data_format_adapter_out_data_27_reg0_227q <= 0;
+			data_format_adapter_out_data_28_reg0_226q <= 0;
+			data_format_adapter_out_data_29_reg0_225q <= 0;
+			data_format_adapter_out_data_2_reg0_252q <= 0;
+			data_format_adapter_out_data_30_reg0_224q <= 0;
+			data_format_adapter_out_data_31_reg0_223q <= 0;
+			data_format_adapter_out_data_3_reg0_251q <= 0;
+			data_format_adapter_out_data_4_reg0_250q <= 0;
+			data_format_adapter_out_data_5_reg0_249q <= 0;
+			data_format_adapter_out_data_6_reg0_248q <= 0;
+			data_format_adapter_out_data_7_reg0_247q <= 0;
+			data_format_adapter_out_data_8_reg0_246q <= 0;
+			data_format_adapter_out_data_9_reg0_245q <= 0;
+			data_format_adapter_out_empty_0_reg0_221q <= 0;
+			data_format_adapter_out_empty_1_reg0_257q <= 0;
+			data_format_adapter_out_endofpacket_reg0_256q <= 0;
+			data_format_adapter_out_startofpacket_reg0_255q <= 0;
+		end
+		else if  (s_wire_data_format_adapter_a_ready_107_dataout == 1'b1) 
+		begin
+			data_format_adapter_out_data_0_reg0_254q <= wire_data_format_adapter_b_data_0_148m_dataout;
+			data_format_adapter_out_data_10_reg0_244q <= wire_data_format_adapter_mux13_138_o;
+			data_format_adapter_out_data_11_reg0_243q <= wire_data_format_adapter_mux12_137_o;
+			data_format_adapter_out_data_12_reg0_242q <= wire_data_format_adapter_mux11_136_o;
+			data_format_adapter_out_data_13_reg0_241q <= wire_data_format_adapter_mux10_135_o;
+			data_format_adapter_out_data_14_reg0_240q <= wire_data_format_adapter_mux9_134_o;
+			data_format_adapter_out_data_15_reg0_239q <= wire_data_format_adapter_mux8_133_o;
+			data_format_adapter_out_data_16_reg0_238q <= wire_data_format_adapter_mux7_132_o;
+			data_format_adapter_out_data_17_reg0_237q <= wire_data_format_adapter_mux6_131_o;
+			data_format_adapter_out_data_18_reg0_236q <= wire_data_format_adapter_mux5_130_o;
+			data_format_adapter_out_data_19_reg0_235q <= wire_data_format_adapter_mux4_129_o;
+			data_format_adapter_out_data_1_reg0_253q <= wire_data_format_adapter_b_data_1_147m_dataout;
+			data_format_adapter_out_data_20_reg0_234q <= wire_data_format_adapter_mux3_128_o;
+			data_format_adapter_out_data_21_reg0_233q <= wire_data_format_adapter_mux2_127_o;
+			data_format_adapter_out_data_22_reg0_232q <= wire_data_format_adapter_mux1_126_o;
+			data_format_adapter_out_data_23_reg0_231q <= wire_data_format_adapter_mux0_125_o;
+			data_format_adapter_out_data_24_reg0_230q <= wire_data_format_adapter_b_data_24_124m_dataout;
+			data_format_adapter_out_data_25_reg0_229q <= wire_data_format_adapter_b_data_25_123m_dataout;
+			data_format_adapter_out_data_26_reg0_228q <= wire_data_format_adapter_b_data_26_122m_dataout;
+			data_format_adapter_out_data_27_reg0_227q <= wire_data_format_adapter_b_data_27_121m_dataout;
+			data_format_adapter_out_data_28_reg0_226q <= wire_data_format_adapter_b_data_28_120m_dataout;
+			data_format_adapter_out_data_29_reg0_225q <= wire_data_format_adapter_b_data_29_119m_dataout;
+			data_format_adapter_out_data_2_reg0_252q <= wire_data_format_adapter_b_data_2_146m_dataout;
+			data_format_adapter_out_data_30_reg0_224q <= wire_data_format_adapter_b_data_30_118m_dataout;
+			data_format_adapter_out_data_31_reg0_223q <= wire_data_format_adapter_b_data_31_117m_dataout;
+			data_format_adapter_out_data_3_reg0_251q <= wire_data_format_adapter_b_data_3_145m_dataout;
+			data_format_adapter_out_data_4_reg0_250q <= wire_data_format_adapter_b_data_4_144m_dataout;
+			data_format_adapter_out_data_5_reg0_249q <= wire_data_format_adapter_b_data_5_143m_dataout;
+			data_format_adapter_out_data_6_reg0_248q <= wire_data_format_adapter_b_data_6_142m_dataout;
+			data_format_adapter_out_data_7_reg0_247q <= wire_data_format_adapter_b_data_7_141m_dataout;
+			data_format_adapter_out_data_8_reg0_246q <= wire_data_format_adapter_mux15_140_o;
+			data_format_adapter_out_data_9_reg0_245q <= wire_data_format_adapter_mux14_139_o;
+			data_format_adapter_out_empty_0_reg0_221q <= wire_data_format_adapter_mux20_153_o;
+			data_format_adapter_out_empty_1_reg0_257q <= wire_data_format_adapter_mux19_152_o;
+			data_format_adapter_out_endofpacket_reg0_256q <= data_format_adapter_a_endofpacket_23q;
+			data_format_adapter_out_startofpacket_reg0_255q <= wire_data_format_adapter_b_startofpacket_175m_dataout;
+		end
+	end
+	initial
+	begin
+		data_format_adapter_in_ready_d1_25q = 0;
+		data_format_adapter_out_valid_reg0_222q = 0;
+		data_format_adapter_state_d1_0_52q = 0;
+		data_format_adapter_state_d1_1_26q = 0;
+		data_format_adapter_state_register_0_54q = 0;
+		data_format_adapter_state_register_1_53q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_in_ready_d1_25q <= 0;
+			data_format_adapter_out_valid_reg0_222q <= 0;
+			data_format_adapter_state_d1_0_52q <= 0;
+			data_format_adapter_state_d1_1_26q <= 0;
+			data_format_adapter_state_register_0_54q <= 0;
+			data_format_adapter_state_register_1_53q <= 0;
+		end
+		else 
+		begin
+			data_format_adapter_in_ready_d1_25q <= s_wire_data_format_adapter_in_ready_177_dataout;
+			data_format_adapter_out_valid_reg0_222q <= wire_data_format_adapter_out_valid_reg0_310m_dataout;
+			data_format_adapter_state_d1_0_52q <= wire_data_format_adapter_state_0_81m_dataout;
+			data_format_adapter_state_d1_1_26q <= wire_data_format_adapter_state_1_80m_dataout;
+			data_format_adapter_state_register_0_54q <= wire_data_format_adapter_mux17_150_o;
+			data_format_adapter_state_register_1_53q <= wire_data_format_adapter_mux16_149_o;
+		end
+	end
+	initial
+	begin
+		data_format_adapter_data2_register_0_220q = 0;
+		data_format_adapter_data2_register_1_78q = 0;
+		data_format_adapter_data2_register_2_77q = 0;
+		data_format_adapter_data2_register_3_76q = 0;
+		data_format_adapter_data2_register_4_75q = 0;
+		data_format_adapter_data2_register_5_74q = 0;
+		data_format_adapter_data2_register_6_73q = 0;
+		data_format_adapter_data2_register_7_72q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_data2_register_0_220q <= 0;
+			data_format_adapter_data2_register_1_78q <= 0;
+			data_format_adapter_data2_register_2_77q <= 0;
+			data_format_adapter_data2_register_3_76q <= 0;
+			data_format_adapter_data2_register_4_75q <= 0;
+			data_format_adapter_data2_register_5_74q <= 0;
+			data_format_adapter_data2_register_6_73q <= 0;
+			data_format_adapter_data2_register_7_72q <= 0;
+		end
+		else if  (wire_data_format_adapter_mem_write2_173m_dataout == 1'b1) 
+		begin
+			data_format_adapter_data2_register_0_220q <= data_format_adapter_a_data0_0_21q;
+			data_format_adapter_data2_register_1_78q <= data_format_adapter_a_data0_1_20q;
+			data_format_adapter_data2_register_2_77q <= data_format_adapter_a_data0_2_19q;
+			data_format_adapter_data2_register_3_76q <= data_format_adapter_a_data0_3_18q;
+			data_format_adapter_data2_register_4_75q <= data_format_adapter_a_data0_4_17q;
+			data_format_adapter_data2_register_5_74q <= data_format_adapter_a_data0_5_16q;
+			data_format_adapter_data2_register_6_73q <= data_format_adapter_a_data0_6_15q;
+			data_format_adapter_data2_register_7_72q <= data_format_adapter_a_data0_7_14q;
+		end
+	end
+	initial
+	begin
+		data_format_adapter_data1_register_0_71q = 0;
+		data_format_adapter_data1_register_1_70q = 0;
+		data_format_adapter_data1_register_2_69q = 0;
+		data_format_adapter_data1_register_3_68q = 0;
+		data_format_adapter_data1_register_4_67q = 0;
+		data_format_adapter_data1_register_5_66q = 0;
+		data_format_adapter_data1_register_6_65q = 0;
+		data_format_adapter_data1_register_7_64q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_data1_register_0_71q <= 0;
+			data_format_adapter_data1_register_1_70q <= 0;
+			data_format_adapter_data1_register_2_69q <= 0;
+			data_format_adapter_data1_register_3_68q <= 0;
+			data_format_adapter_data1_register_4_67q <= 0;
+			data_format_adapter_data1_register_5_66q <= 0;
+			data_format_adapter_data1_register_6_65q <= 0;
+			data_format_adapter_data1_register_7_64q <= 0;
+		end
+		else if  (wire_data_format_adapter_mux22_172_o == 1'b1) 
+		begin
+			data_format_adapter_data1_register_0_71q <= wire_data_format_adapter_mem_writedata1_0_170m_dataout;
+			data_format_adapter_data1_register_1_70q <= wire_data_format_adapter_mem_writedata1_1_169m_dataout;
+			data_format_adapter_data1_register_2_69q <= wire_data_format_adapter_mem_writedata1_2_168m_dataout;
+			data_format_adapter_data1_register_3_68q <= wire_data_format_adapter_mem_writedata1_3_167m_dataout;
+			data_format_adapter_data1_register_4_67q <= wire_data_format_adapter_mem_writedata1_4_166m_dataout;
+			data_format_adapter_data1_register_5_66q <= wire_data_format_adapter_mem_writedata1_5_165m_dataout;
+			data_format_adapter_data1_register_6_65q <= wire_data_format_adapter_mem_writedata1_6_164m_dataout;
+			data_format_adapter_data1_register_7_64q <= wire_data_format_adapter_mem_writedata1_7_163m_dataout;
+		end
+	end
+	initial
+	begin
+		data_format_adapter_data0_register_0_63q = 0;
+		data_format_adapter_data0_register_1_62q = 0;
+		data_format_adapter_data0_register_2_61q = 0;
+		data_format_adapter_data0_register_3_60q = 0;
+		data_format_adapter_data0_register_4_59q = 0;
+		data_format_adapter_data0_register_5_58q = 0;
+		data_format_adapter_data0_register_6_57q = 0;
+		data_format_adapter_data0_register_7_56q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_data0_register_0_63q <= 0;
+			data_format_adapter_data0_register_1_62q <= 0;
+			data_format_adapter_data0_register_2_61q <= 0;
+			data_format_adapter_data0_register_3_60q <= 0;
+			data_format_adapter_data0_register_4_59q <= 0;
+			data_format_adapter_data0_register_5_58q <= 0;
+			data_format_adapter_data0_register_6_57q <= 0;
+			data_format_adapter_data0_register_7_56q <= 0;
+		end
+		else if  (wire_data_format_adapter_mux21_171_o == 1'b1) 
+		begin
+			data_format_adapter_data0_register_0_63q <= wire_data_format_adapter_mem_writedata0_0_162m_dataout;
+			data_format_adapter_data0_register_1_62q <= wire_data_format_adapter_mem_writedata0_1_161m_dataout;
+			data_format_adapter_data0_register_2_61q <= wire_data_format_adapter_mem_writedata0_2_160m_dataout;
+			data_format_adapter_data0_register_3_60q <= wire_data_format_adapter_mem_writedata0_3_159m_dataout;
+			data_format_adapter_data0_register_4_59q <= wire_data_format_adapter_mem_writedata0_4_158m_dataout;
+			data_format_adapter_data0_register_5_58q <= wire_data_format_adapter_mem_writedata0_5_157m_dataout;
+			data_format_adapter_data0_register_6_57q <= wire_data_format_adapter_mem_writedata0_6_156m_dataout;
+			data_format_adapter_data0_register_7_56q <= wire_data_format_adapter_mem_writedata0_7_155m_dataout;
+		end
+	end
+	initial
+	begin
+		data_format_adapter_a_data0_0_21q = 0;
+		data_format_adapter_a_data0_1_20q = 0;
+		data_format_adapter_a_data0_2_19q = 0;
+		data_format_adapter_a_data0_3_18q = 0;
+		data_format_adapter_a_data0_4_17q = 0;
+		data_format_adapter_a_data0_5_16q = 0;
+		data_format_adapter_a_data0_6_15q = 0;
+		data_format_adapter_a_data0_7_14q = 0;
+		data_format_adapter_a_endofpacket_23q = 0;
+		data_format_adapter_a_startofpacket_22q = 0;
+		data_format_adapter_a_valid_13q = 0;
+	end
+	always @ ( posedge clk or  negedge reset_n)
+	begin
+		if (reset_n == 1'b0) 
+		begin
+			data_format_adapter_a_data0_0_21q <= 0;
+			data_format_adapter_a_data0_1_20q <= 0;
+			data_format_adapter_a_data0_2_19q <= 0;
+			data_format_adapter_a_data0_3_18q <= 0;
+			data_format_adapter_a_data0_4_17q <= 0;
+			data_format_adapter_a_data0_5_16q <= 0;
+			data_format_adapter_a_data0_6_15q <= 0;
+			data_format_adapter_a_data0_7_14q <= 0;
+			data_format_adapter_a_endofpacket_23q <= 0;
+			data_format_adapter_a_startofpacket_22q <= 0;
+			data_format_adapter_a_valid_13q <= 0;
+		end
+		else if  (s_wire_data_format_adapter_in_ready_177_dataout == 1'b1) 
+		begin
+			data_format_adapter_a_data0_0_21q <= in_data[0];
+			data_format_adapter_a_data0_1_20q <= in_data[1];
+			data_format_adapter_a_data0_2_19q <= in_data[2];
+			data_format_adapter_a_data0_3_18q <= in_data[3];
+			data_format_adapter_a_data0_4_17q <= in_data[4];
+			data_format_adapter_a_data0_5_16q <= in_data[5];
+			data_format_adapter_a_data0_6_15q <= in_data[6];
+			data_format_adapter_a_data0_7_14q <= in_data[7];
+			data_format_adapter_a_endofpacket_23q <= in_endofpacket;
+			data_format_adapter_a_startofpacket_22q <= in_startofpacket;
+			data_format_adapter_a_valid_13q <= in_valid;
+		end
+	end
+	and(wire_data_format_adapter_b_data_0_148m_dataout, data_format_adapter_a_data0_0_21q, wire_data_format_adapter_decoder0_116_o[3]);
+	and(wire_data_format_adapter_b_data_1_147m_dataout, data_format_adapter_a_data0_1_20q, wire_data_format_adapter_decoder0_116_o[3]);
+	assign		wire_data_format_adapter_b_data_24_124m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_0_21q : data_format_adapter_data0_register_0_63q;
+	assign		wire_data_format_adapter_b_data_25_123m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_1_20q : data_format_adapter_data0_register_1_62q;
+	assign		wire_data_format_adapter_b_data_26_122m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_2_19q : data_format_adapter_data0_register_2_61q;
+	assign		wire_data_format_adapter_b_data_27_121m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_3_18q : data_format_adapter_data0_register_3_60q;
+	assign		wire_data_format_adapter_b_data_28_120m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_4_17q : data_format_adapter_data0_register_4_59q;
+	assign		wire_data_format_adapter_b_data_29_119m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_5_16q : data_format_adapter_data0_register_5_58q;
+	and(wire_data_format_adapter_b_data_2_146m_dataout, data_format_adapter_a_data0_2_19q, wire_data_format_adapter_decoder0_116_o[3]);
+	assign		wire_data_format_adapter_b_data_30_118m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_6_15q : data_format_adapter_data0_register_6_57q;
+	assign		wire_data_format_adapter_b_data_31_117m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? data_format_adapter_a_data0_7_14q : data_format_adapter_data0_register_7_56q;
+	and(wire_data_format_adapter_b_data_3_145m_dataout, data_format_adapter_a_data0_3_18q, wire_data_format_adapter_decoder0_116_o[3]);
+	and(wire_data_format_adapter_b_data_4_144m_dataout, data_format_adapter_a_data0_4_17q, wire_data_format_adapter_decoder0_116_o[3]);
+	and(wire_data_format_adapter_b_data_5_143m_dataout, data_format_adapter_a_data0_5_16q, wire_data_format_adapter_decoder0_116_o[3]);
+	and(wire_data_format_adapter_b_data_6_142m_dataout, data_format_adapter_a_data0_6_15q, wire_data_format_adapter_decoder0_116_o[3]);
+	and(wire_data_format_adapter_b_data_7_141m_dataout, data_format_adapter_a_data0_7_14q, wire_data_format_adapter_decoder0_116_o[3]);
+	and(wire_data_format_adapter_b_empty_103m_dataout, wire_data_format_adapter_b_empty_97m_dataout, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_b_empty_104m_dataout, wire_data_format_adapter_b_empty_98m_dataout, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_b_empty_83m_dataout, (~ wire_data_format_adapter_add0_91_o[1]), data_format_adapter_a_endofpacket_23q);
+	and(wire_data_format_adapter_b_empty_85m_dataout, wire_data_format_adapter_b_empty_83m_dataout, data_format_adapter_a_valid_13q);
+	and(wire_data_format_adapter_b_empty_88m_dataout, wire_data_format_adapter_b_empty_85m_dataout, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_b_empty_90m_dataout, wire_data_format_adapter_b_valid_99m_dataout, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_b_empty_92m_dataout, wire_data_format_adapter_add0_91_o[1], data_format_adapter_a_endofpacket_23q);
+	and(wire_data_format_adapter_b_empty_93m_dataout, wire_data_format_adapter_add0_91_o[0], data_format_adapter_a_endofpacket_23q);
+	and(wire_data_format_adapter_b_empty_97m_dataout, wire_data_format_adapter_b_empty_92m_dataout, data_format_adapter_a_valid_13q);
+	and(wire_data_format_adapter_b_empty_98m_dataout, wire_data_format_adapter_b_empty_93m_dataout, data_format_adapter_a_valid_13q);
+	assign		wire_data_format_adapter_b_startofpacket_175m_dataout = (wire_data_format_adapter_decoder0_116_o[0] === 1'b1) ? wire_data_format_adapter_b_startofpacket_89m_dataout : data_format_adapter_sop_register_55q;
+	assign		wire_data_format_adapter_b_startofpacket_84m_dataout = (data_format_adapter_a_endofpacket_23q === 1'b1) ? data_format_adapter_a_startofpacket_22q : data_format_adapter_sop_register_55q;
+	assign		wire_data_format_adapter_b_startofpacket_86m_dataout = (data_format_adapter_a_valid_13q === 1'b1) ? wire_data_format_adapter_b_startofpacket_84m_dataout : data_format_adapter_sop_register_55q;
+	assign		wire_data_format_adapter_b_startofpacket_89m_dataout = (s_wire_data_format_adapter_a_ready_107_dataout === 1'b1) ? wire_data_format_adapter_b_startofpacket_86m_dataout : data_format_adapter_sop_register_55q;
+	and(wire_data_format_adapter_b_valid_105m_dataout, wire_data_format_adapter_b_valid_99m_dataout, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_b_valid_114m_dataout, data_format_adapter_a_valid_13q, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_b_valid_99m_dataout, data_format_adapter_a_endofpacket_23q, data_format_adapter_a_valid_13q);
+	and(wire_data_format_adapter_mem_write0_102m_dataout, data_format_adapter_a_valid_13q, s_wire_data_format_adapter_a_ready_107_dataout);
+	and(wire_data_format_adapter_mem_write2_173m_dataout, wire_data_format_adapter_mem_write0_102m_dataout, wire_data_format_adapter_decoder0_116_o[2]);
+	assign		wire_data_format_adapter_mem_writedata0_0_162m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_0_21q : data_format_adapter_data0_register_0_63q;
+	assign		wire_data_format_adapter_mem_writedata0_1_161m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_1_20q : data_format_adapter_data0_register_1_62q;
+	assign		wire_data_format_adapter_mem_writedata0_2_160m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_2_19q : data_format_adapter_data0_register_2_61q;
+	assign		wire_data_format_adapter_mem_writedata0_3_159m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_3_18q : data_format_adapter_data0_register_3_60q;
+	assign		wire_data_format_adapter_mem_writedata0_4_158m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_4_17q : data_format_adapter_data0_register_4_59q;
+	assign		wire_data_format_adapter_mem_writedata0_5_157m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_5_16q : data_format_adapter_data0_register_5_58q;
+	assign		wire_data_format_adapter_mem_writedata0_6_156m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_6_15q : data_format_adapter_data0_register_6_57q;
+	assign		wire_data_format_adapter_mem_writedata0_7_155m_dataout = (s_wire_data_format_adapter_mem_writedata0_154_dataout === 1'b1) ? data_format_adapter_a_data0_7_14q : data_format_adapter_data0_register_7_56q;
+	assign		wire_data_format_adapter_mem_writedata1_0_170m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_0_71q : data_format_adapter_a_data0_0_21q;
+	assign		wire_data_format_adapter_mem_writedata1_1_169m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_1_70q : data_format_adapter_a_data0_1_20q;
+	assign		wire_data_format_adapter_mem_writedata1_2_168m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_2_69q : data_format_adapter_a_data0_2_19q;
+	assign		wire_data_format_adapter_mem_writedata1_3_167m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_3_68q : data_format_adapter_a_data0_3_18q;
+	assign		wire_data_format_adapter_mem_writedata1_4_166m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_4_67q : data_format_adapter_a_data0_4_17q;
+	assign		wire_data_format_adapter_mem_writedata1_5_165m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_5_66q : data_format_adapter_a_data0_5_16q;
+	assign		wire_data_format_adapter_mem_writedata1_6_164m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_6_65q : data_format_adapter_a_data0_6_15q;
+	assign		wire_data_format_adapter_mem_writedata1_7_163m_dataout = (wire_data_format_adapter_decoder0_116_o[2] === 1'b1) ? data_format_adapter_data1_register_7_64q : data_format_adapter_a_data0_7_14q;
+	assign		wire_data_format_adapter_new_state_100m_dataout = (s_wire_data_format_adapter_a_ready_107_dataout === 1'b1) ? wire_data_format_adapter_new_state_95m_dataout : wire_data_format_adapter_state_1_80m_dataout;
+	assign		wire_data_format_adapter_new_state_101m_dataout = (s_wire_data_format_adapter_a_ready_107_dataout === 1'b1) ? wire_data_format_adapter_new_state_96m_dataout : wire_data_format_adapter_state_0_81m_dataout;
+	and(wire_data_format_adapter_new_state_109m_dataout, wire_data_format_adapter_state_1_80m_dataout, ~(data_format_adapter_a_valid_13q));
+	and(wire_data_format_adapter_new_state_110m_dataout, wire_data_format_adapter_state_0_81m_dataout, ~(data_format_adapter_a_valid_13q));
+	assign		wire_data_format_adapter_new_state_112m_dataout = (s_wire_data_format_adapter_a_ready_107_dataout === 1'b1) ? wire_data_format_adapter_new_state_109m_dataout : wire_data_format_adapter_state_1_80m_dataout;
+	assign		wire_data_format_adapter_new_state_113m_dataout = (s_wire_data_format_adapter_a_ready_107_dataout === 1'b1) ? wire_data_format_adapter_new_state_110m_dataout : wire_data_format_adapter_state_0_81m_dataout;
+	assign		wire_data_format_adapter_new_state_95m_dataout = (data_format_adapter_a_valid_13q === 1'b1) ? (~ data_format_adapter_a_endofpacket_23q) : wire_data_format_adapter_state_1_80m_dataout;
+	assign		wire_data_format_adapter_new_state_96m_dataout = (data_format_adapter_a_valid_13q === 1'b1) ? (~ data_format_adapter_a_endofpacket_23q) : wire_data_format_adapter_state_0_81m_dataout;
+	assign		wire_data_format_adapter_out_valid_reg0_310m_dataout = (s_wire_data_format_adapter_a_ready_107_dataout === 1'b1) ? wire_data_format_adapter_mux18_151_o : data_format_adapter_out_valid_reg0_222q;
+	and(wire_data_format_adapter_sop_mem_writedata_178m_dataout, data_format_adapter_a_startofpacket_22q, data_format_adapter_a_valid_13q);
+	and(wire_data_format_adapter_sop_mem_writeenable_174m_dataout, wire_data_format_adapter_sop_mem_writeenable_87m_dataout, wire_data_format_adapter_decoder0_116_o[0]);
+	or(wire_data_format_adapter_sop_mem_writeenable_181m_dataout, wire_data_format_adapter_sop_mem_writeenable_174m_dataout, (wire_data_format_adapter_b_startofpacket_175m_dataout & (s_wire_data_format_adapter_a_ready_107_dataout & wire_data_format_adapter_mux18_151_o)));
+	and(wire_data_format_adapter_sop_mem_writeenable_87m_dataout, data_format_adapter_a_valid_13q, s_wire_data_format_adapter_a_ready_107_dataout);
+	assign		wire_data_format_adapter_state_0_81m_dataout = ((~ data_format_adapter_in_ready_d1_25q) === 1'b1) ? data_format_adapter_state_d1_0_52q : data_format_adapter_state_register_0_54q;
+	assign		wire_data_format_adapter_state_1_80m_dataout = ((~ data_format_adapter_in_ready_d1_25q) === 1'b1) ? data_format_adapter_state_d1_1_26q : data_format_adapter_state_register_1_53q;
+	oper_add   data_format_adapter_add0_91
+	( 
+	.a({2{1'b0}}),
+	.b({1'b0, 1'b1}),
+	.cin(1'b0),
+	.cout(),
+	.o(wire_data_format_adapter_add0_91_o));
+	defparam
+		data_format_adapter_add0_91.sgate_representation = 0,
+		data_format_adapter_add0_91.width_a = 2,
+		data_format_adapter_add0_91.width_b = 2,
+		data_format_adapter_add0_91.width_o = 2;
+	oper_decoder   data_format_adapter_decoder0_116
+	( 
+	.i({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}),
+	.o(wire_data_format_adapter_decoder0_116_o));
+	defparam
+		data_format_adapter_decoder0_116.width_i = 2,
+		data_format_adapter_decoder0_116.width_o = 4;
+	oper_mux   data_format_adapter_mux0_125
+	( 
+	.data({{2{data_format_adapter_data1_register_7_64q}}, data_format_adapter_a_data0_7_14q, 1'b0}),
+	.o(wire_data_format_adapter_mux0_125_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux0_125.width_data = 4,
+		data_format_adapter_mux0_125.width_sel = 2;
+	oper_mux   data_format_adapter_mux10_135
+	( 
+	.data({data_format_adapter_data2_register_5_74q, data_format_adapter_a_data0_5_16q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux10_135_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux10_135.width_data = 4,
+		data_format_adapter_mux10_135.width_sel = 2;
+	oper_mux   data_format_adapter_mux11_136
+	( 
+	.data({data_format_adapter_data2_register_4_75q, data_format_adapter_a_data0_4_17q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux11_136_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux11_136.width_data = 4,
+		data_format_adapter_mux11_136.width_sel = 2;
+	oper_mux   data_format_adapter_mux12_137
+	( 
+	.data({data_format_adapter_data2_register_3_76q, data_format_adapter_a_data0_3_18q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux12_137_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux12_137.width_data = 4,
+		data_format_adapter_mux12_137.width_sel = 2;
+	oper_mux   data_format_adapter_mux13_138
+	( 
+	.data({data_format_adapter_data2_register_2_77q, data_format_adapter_a_data0_2_19q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux13_138_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux13_138.width_data = 4,
+		data_format_adapter_mux13_138.width_sel = 2;
+	oper_mux   data_format_adapter_mux14_139
+	( 
+	.data({data_format_adapter_data2_register_1_78q, data_format_adapter_a_data0_1_20q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux14_139_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux14_139.width_data = 4,
+		data_format_adapter_mux14_139.width_sel = 2;
+	oper_mux   data_format_adapter_mux15_140
+	( 
+	.data({data_format_adapter_data2_register_0_220q, data_format_adapter_a_data0_0_21q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux15_140_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux15_140.width_data = 4,
+		data_format_adapter_mux15_140.width_sel = 2;
+	oper_mux   data_format_adapter_mux16_149
+	( 
+	.data({wire_data_format_adapter_new_state_112m_dataout, {2{wire_data_format_adapter_new_state_100m_dataout}}, wire_data_format_adapter_new_state_112m_dataout}),
+	.o(wire_data_format_adapter_mux16_149_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux16_149.width_data = 4,
+		data_format_adapter_mux16_149.width_sel = 2;
+	oper_mux   data_format_adapter_mux17_150
+	( 
+	.data({wire_data_format_adapter_new_state_113m_dataout, wire_data_format_adapter_new_state_101m_dataout, wire_data_format_adapter_new_state_113m_dataout, wire_data_format_adapter_new_state_101m_dataout}),
+	.o(wire_data_format_adapter_mux17_150_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux17_150.width_data = 4,
+		data_format_adapter_mux17_150.width_sel = 2;
+	oper_mux   data_format_adapter_mux18_151
+	( 
+	.data({wire_data_format_adapter_b_valid_114m_dataout, {3{wire_data_format_adapter_b_valid_105m_dataout}}}),
+	.o(wire_data_format_adapter_mux18_151_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux18_151.width_data = 4,
+		data_format_adapter_mux18_151.width_sel = 2;
+	oper_mux   data_format_adapter_mux19_152
+	( 
+	.data({1'b0, wire_data_format_adapter_b_empty_103m_dataout, wire_data_format_adapter_b_empty_90m_dataout, wire_data_format_adapter_b_empty_88m_dataout}),
+	.o(wire_data_format_adapter_mux19_152_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux19_152.width_data = 4,
+		data_format_adapter_mux19_152.width_sel = 2;
+	oper_mux   data_format_adapter_mux1_126
+	( 
+	.data({{2{data_format_adapter_data1_register_6_65q}}, data_format_adapter_a_data0_6_15q, 1'b0}),
+	.o(wire_data_format_adapter_mux1_126_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux1_126.width_data = 4,
+		data_format_adapter_mux1_126.width_sel = 2;
+	oper_mux   data_format_adapter_mux20_153
+	( 
+	.data({1'b0, wire_data_format_adapter_b_empty_104m_dataout, 1'b0, wire_data_format_adapter_b_empty_104m_dataout}),
+	.o(wire_data_format_adapter_mux20_153_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux20_153.width_data = 4,
+		data_format_adapter_mux20_153.width_sel = 2;
+	oper_mux   data_format_adapter_mux21_171
+	( 
+	.data({1'b0, {3{wire_data_format_adapter_mem_write0_102m_dataout}}}),
+	.o(wire_data_format_adapter_mux21_171_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux21_171.width_data = 4,
+		data_format_adapter_mux21_171.width_sel = 2;
+	oper_mux   data_format_adapter_mux22_172
+	( 
+	.data({1'b0, {2{wire_data_format_adapter_mem_write0_102m_dataout}}, 1'b0}),
+	.o(wire_data_format_adapter_mux22_172_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux22_172.width_data = 4,
+		data_format_adapter_mux22_172.width_sel = 2;
+	oper_mux   data_format_adapter_mux2_127
+	( 
+	.data({{2{data_format_adapter_data1_register_5_66q}}, data_format_adapter_a_data0_5_16q, 1'b0}),
+	.o(wire_data_format_adapter_mux2_127_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux2_127.width_data = 4,
+		data_format_adapter_mux2_127.width_sel = 2;
+	oper_mux   data_format_adapter_mux3_128
+	( 
+	.data({{2{data_format_adapter_data1_register_4_67q}}, data_format_adapter_a_data0_4_17q, 1'b0}),
+	.o(wire_data_format_adapter_mux3_128_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux3_128.width_data = 4,
+		data_format_adapter_mux3_128.width_sel = 2;
+	oper_mux   data_format_adapter_mux4_129
+	( 
+	.data({{2{data_format_adapter_data1_register_3_68q}}, data_format_adapter_a_data0_3_18q, 1'b0}),
+	.o(wire_data_format_adapter_mux4_129_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux4_129.width_data = 4,
+		data_format_adapter_mux4_129.width_sel = 2;
+	oper_mux   data_format_adapter_mux5_130
+	( 
+	.data({{2{data_format_adapter_data1_register_2_69q}}, data_format_adapter_a_data0_2_19q, 1'b0}),
+	.o(wire_data_format_adapter_mux5_130_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux5_130.width_data = 4,
+		data_format_adapter_mux5_130.width_sel = 2;
+	oper_mux   data_format_adapter_mux6_131
+	( 
+	.data({{2{data_format_adapter_data1_register_1_70q}}, data_format_adapter_a_data0_1_20q, 1'b0}),
+	.o(wire_data_format_adapter_mux6_131_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux6_131.width_data = 4,
+		data_format_adapter_mux6_131.width_sel = 2;
+	oper_mux   data_format_adapter_mux7_132
+	( 
+	.data({{2{data_format_adapter_data1_register_0_71q}}, data_format_adapter_a_data0_0_21q, 1'b0}),
+	.o(wire_data_format_adapter_mux7_132_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux7_132.width_data = 4,
+		data_format_adapter_mux7_132.width_sel = 2;
+	oper_mux   data_format_adapter_mux8_133
+	( 
+	.data({data_format_adapter_data2_register_7_72q, data_format_adapter_a_data0_7_14q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux8_133_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux8_133.width_data = 4,
+		data_format_adapter_mux8_133.width_sel = 2;
+	oper_mux   data_format_adapter_mux9_134
+	( 
+	.data({data_format_adapter_data2_register_6_73q, data_format_adapter_a_data0_6_15q, {2{1'b0}}}),
+	.o(wire_data_format_adapter_mux9_134_o),
+	.sel({wire_data_format_adapter_state_1_80m_dataout, wire_data_format_adapter_state_0_81m_dataout}));
+	defparam
+		data_format_adapter_mux9_134.width_data = 4,
+		data_format_adapter_mux9_134.width_sel = 2;
+	assign
+		in_ready = s_wire_data_format_adapter_in_ready_177_dataout,
+		out_data = {data_format_adapter_out_data_31_reg0_223q, data_format_adapter_out_data_30_reg0_224q, data_format_adapter_out_data_29_reg0_225q, data_format_adapter_out_data_28_reg0_226q, data_format_adapter_out_data_27_reg0_227q, data_format_adapter_out_data_26_reg0_228q, data_format_adapter_out_data_25_reg0_229q, data_format_adapter_out_data_24_reg0_230q, data_format_adapter_out_data_23_reg0_231q, data_format_adapter_out_data_22_reg0_232q, data_format_adapter_out_data_21_reg0_233q, data_format_adapter_out_data_20_reg0_234q, data_format_adapter_out_data_19_reg0_235q, data_format_adapter_out_data_18_reg0_236q, data_format_adapter_out_data_17_reg0_237q, data_format_adapter_out_data_16_reg0_238q, data_format_adapter_out_data_15_reg0_239q, data_format_adapter_out_data_14_reg0_240q, data_format_adapter_out_data_13_reg0_241q, data_format_adapter_out_data_12_reg0_242q, data_format_adapter_out_data_11_reg0_243q, data_format_adapter_out_data_10_reg0_244q, data_format_adapter_out_data_9_reg0_245q, data_format_adapter_out_data_8_reg0_246q, data_format_adapter_out_data_7_reg0_247q, data_format_adapter_out_data_6_reg0_248q, data_format_adapter_out_data_5_reg0_249q, data_format_adapter_out_data_4_reg0_250q, data_format_adapter_out_data_3_reg0_251q, data_format_adapter_out_data_2_reg0_252q, data_format_adapter_out_data_1_reg0_253q, data_format_adapter_out_data_0_reg0_254q},
+		out_empty = {data_format_adapter_out_empty_1_reg0_257q, data_format_adapter_out_empty_0_reg0_221q},
+		out_endofpacket = data_format_adapter_out_endofpacket_reg0_256q,
+		out_startofpacket = data_format_adapter_out_startofpacket_reg0_255q,
+		out_valid = data_format_adapter_out_valid_reg0_222q,
+		s_wire_data_format_adapter_a_ready_107_dataout = ((~ data_format_adapter_out_valid_reg0_222q) | out_ready),
+		s_wire_data_format_adapter_in_ready_177_dataout = ((~ data_format_adapter_a_valid_13q) | s_wire_data_format_adapter_a_ready_107_dataout),
+		s_wire_data_format_adapter_mem_writedata0_154_dataout = (wire_data_format_adapter_decoder0_116_o[0] | wire_data_format_adapter_decoder0_116_o[3]),
+		s_wire_vcc = 1'b1;
+endmodule //data_format_adapter
+//synopsys translate_on
+//VALID FILE

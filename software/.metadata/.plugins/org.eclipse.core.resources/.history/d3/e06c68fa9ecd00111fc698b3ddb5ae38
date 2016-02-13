@@ -1,0 +1,145 @@
+// adc.c
+#include "adc.h"
+#include "altera_avalon_pio_regs.h"
+#include <sys\alt_dma.h>
+#include <sys\alt_cache.h>
+#include "includes.h"
+
+//#include <altera_avalon_dma.h>
+
+   int cpu_sr;
+
+alt_sgdma_dev *PDmaDevice;
+
+alt_sgdma_descriptor Desc0 __attribute__ ((section ("desc")  ) );
+alt_sgdma_descriptor Desc1  __attribute__ ((section ("desc")  ) );
+alt_sgdma_descriptor NextDesc0  __attribute__ ((section ("desc")  ) );
+alt_sgdma_descriptor NextDesc1  __attribute__ ((section ("desc")  ) );
+
+
+#define NSamplesBuf 10
+#define SampleLen 8192
+#define NUDPBloksPerSample (SampleLen/BlockSize)
+alt_u8 TransmitBuf[SampleLen*sizeof(alt_u32)*NSamplesBuf];
+volatile alt_u16  NTx;  // номер сл. выборки для передачи
+volatile alt_u16  NRx;  // номер сл. выборки для приема ацп
+volatile alt_u8  *PRx;  // адрес сл. выборки для приема ацп
+volatile alt_u8  *PTx;  // адрес сл. выборки для передачи
+volatile alt_u8  SGDMAFInWork;
+volatile alt_u16  NInQueue; // сколько элементов записано и не обработано
+
+
+#define SenderTaskStackSize 256
+static OS_STK  SenderTaskStack[SenderTaskStackSize];
+
+void SGDMAFFree();
+
+void InitADC(){
+    int i;
+   INT8U error_code;
+
+	PDmaDevice= alt_avalon_sgdma_open (SGDMA_F_NAME);  // строка имени из system.h
+	// хочу прерывания по окончанию обработки всех дескрипторов
+    alt_avalon_sgdma_register_callback(PDmaDevice, SGDMAFFree,
+    		ALTERA_AVALON_SGDMA_CONTROL_IE_CHAIN_COMPLETED_MSK + ALTERA_AVALON_SGDMA_CONTROL_IE_GLOBAL_MSK,
+    		NULL);
+
+	alt_avalon_sgdma_construct_stream_to_mem_desc(
+	                                  &Desc0,
+	                                  &NextDesc0,
+	                                  TransmitBuf,
+	                                  SampleLen,         //             length_or_eop (bytes?)
+	                                  0);
+
+
+}
+
+void ADCToMem( alt_u32  * Buf, unsigned int Len){
+	alt_u8 Status;
+	alt_u16 BSize=BlockSize;
+    int i;
+    alt_u32 *CurrentAdr= Buf;
+
+    alt_avalon_sgdma_construct_stream_to_mem_desc(
+	                                  &Desc0,
+	                                  &NextDesc0,
+	                                  Buf,
+	                                  BSize,         //             length_or_eop (bytes?)
+	                                  0);
+    for(i=Len/BSize;i>0;i--){
+         Status= alt_avalon_sgdma_do_sync_transfer(PDmaDevice, &Desc0);
+         OS_Sched();
+         CurrentAdr+=BSize>>2;
+         // "перезарядка" дескриптора
+         IOWR_32DIRECT(&Desc0.write_addr, 0, CurrentAdr);
+         IOWR_8DIRECT(&Desc0.control,0,0x80);  // значение просто подсморел
+         IOWR_8DIRECT(&Desc0.status,0,0x00);
+     }
+}
+void SGDMAFFree(){
+	if(NRx<NSamplesBuf){
+	    NRx++;
+	    PRx+=SampleLen;
+	} else{
+	    NRx=0;
+	    PRx=TransmitBuf;
+	}
+
+	NInQueue++;
+
+    // "перезарядка" дескриптора
+    IOWR_32DIRECT(&Desc0.write_addr, 0, PRx);
+    IOWR_8DIRECT(&Desc0.control,0,0x80);  // значение просто подсморел
+    IOWR_8DIRECT(&Desc0.status,0,0x00);
+    SGDMAFInWork=0;
+
+	return 0;
+}
+
+
+
+
+void ADCToUDPM(int Kol){
+
+    alt_u16 ISample,TxOffset,IBlock;
+    alt_u8 Status;
+
+    NTx=0;
+    NRx=0;
+    *PRx=TransmitBuf;
+    *PTx=TransmitBuf;
+    NInQueue=0;
+    SGDMAFInWork=0;
+
+    // первая выборка
+          // "зарядка" дескриптора
+    IOWR_32DIRECT(&Desc0.write_addr, 0, PRx);
+    IOWR_8DIRECT(&Desc0.control,0,0x80);  // значение просто подсморел
+    IOWR_8DIRECT(&Desc0.status,0,0x00);
+    Status= alt_avalon_sgdma_do_async_transfer(PDmaDevice, &Desc0);
+    SGDMAFInWork=1;
+
+// попробуем superloop
+    for(ISample=0;ISample < Kol; ISample++){     // по запрошенному количеству выборок
+    	// ждем, пока в наличии появится очередная выборка
+    	while(!NInQueue);
+     	//передача  UDP блокoв
+    	for(IBlock=0;IBlock<NUDPBloksPerSample;IBlock++){
+     	     // запуск принятия сл. выборки, если есть место
+    	     if( (NInQueue <  NSamplesBuf)  && !SGDMAFInWork ){
+                 Status= alt_avalon_sgdma_do_async_transfer(PDmaDevice, &Desc0);  //  асинхронно
+                 SGDMAFInWork=1;
+             }
+             hack_send( ext_net, PTx, BlockSize );
+             PTx+=BlockSize;
+    	}//for IBlock
+        if(NTx<NSamplesBuf) {
+   	        NTx++;
+        }else {
+        	NTx=0; PTx=TransmitBuf;
+        }
+        NInQueue--;
+	} // for ISample
+
+} // ADCToUDPM
+
